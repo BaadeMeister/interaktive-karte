@@ -1,5 +1,5 @@
 [
-    { "name": "Brandenburger Tor", "coords": [52.5163, 13.3777] },
-    { "name": "Alexanderplatz", "coords": [52.5219, 13.4132] },
-    { "name": "Reichstag", "coords": [52.5186, 13.3762] }
+    {name: "Rathaus Hamburg", coords: [53.5504, 9.9922] },
+    { name: "Elbphilharmonie", coords: [53.5413, 9.9840] },
+    { name: "Landungsbrücken", coords: [53.5450, 9.9744] }
 ]
