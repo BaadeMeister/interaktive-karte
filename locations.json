@@ -1,5 +1,5 @@
 [
-    {"name": "Rathaus Hamburg", coords: [53.5504, 9.9922] },
-    {"name": "Elbphilharmonie", coords: [53.5413, 9.9840] },
-    {"name": "Landungsbrücken", coords: [53.5450, 9.9744] }
+    {"name": "Rathaus Hamburg", "coords": [53.5504, 9.9922] },
+    {"name": "Elbphilharmonie", "coords": [53.5413, 9.9840] },
+    {"name": "Landungsbrücken", "coords": [53.5450, 9.9744] }
 ]
