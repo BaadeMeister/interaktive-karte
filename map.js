@@ -30,4 +30,39 @@ function populateSidebar(locations) {
 
         // Klick-Event für das Listenelement
         listItem.addEventListener("click", () => {
-            map.setVi
+            map.setView(location.coords, 14); // Karte zentrieren
+            markerArray[index].openPopup(); // Popup öffnen
+        });
+
+        listContainer.appendChild(listItem);
+    });
+}
+
+// Daten laden und Marker hinzufügen
+let markerArray = [];
+fetch('locations.json')
+    .then(response => response.json())
+    .then(data => {
+        // Liste erstellen
+        populateSidebar(data);
+
+        // Marker hinzufügen
+        data.forEach((location, index) => {
+            var marker = L.marker(location.coords).addTo(map);
+            markerArray.push(marker); // Marker speichern
+
+            // Popup-Inhalt
+            var popupContent = `
+                <strong>${location.name}</strong><br>
+                Preisbereich: ${location.priceRange}<br>
+                Spezialisierung: ${location.specialization}
+            `;
+            marker.bindPopup(popupContent);
+
+            // Klick-Event für Marker
+            marker.on("click", () => {
+                map.setView(location.coords, 14); // Karte zentrieren
+            });
+        });
+    })
+    .catch(error => console.error('Fehler beim Laden der Daten:', error));
