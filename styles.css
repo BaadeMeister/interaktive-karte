@@ -9,41 +9,45 @@ html, body {
 /* Suchleiste */
 .search-container {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
-    border-radius: 12px;
+    padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
 .search-container input {
-    padding: 10px;
-    width: 300px;
+    padding: 8px 12px;
+    width: 70%;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 .search-container button {
-    padding: 10px 15px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
 }
 
 /* Sidebar */
 .sidebar {
     width: 25%;
-    height: 100vh;
+    height: calc(100vh - 70px);
     float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
@@ -51,27 +55,38 @@ html, body {
     border-right: 1px solid #ccc;
 }
 
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+    text-align: center;
+}
+
 #locations-list li {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     background: white;
-    transition: transform 0.2s;
+    border: none;
+    border-radius: 6px;
+    transition: box-shadow 0.2s;
+}
+
+#locations-list img.list-item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px; /* Keine Ränder mehr */
 }
 
 #locations-list li:hover {
-    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#locations-list img {
-    width: 70px;
-    height: 70px;
-    border-radius: 8px;
-    flex-shrink: 0;
-    margin-right: 10px;
-    border: none; /* Rand entfernen */
+/* Hervorgehobener Eintrag */
+.highlighted {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 8px #007bff;
 }
 
 /* Karte */
@@ -82,8 +97,20 @@ html, body {
 }
 
 /* Popup-Bilder */
-.leaflet-popup-content img {
+.popup-content img.popup-image {
     max-width: 100%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 0; /* Keine Ränder */
+    cursor: pointer;
+}
+
+/* Mobile Ansicht */
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+
+    #map {
+        width: 100%;
+    }
 }
