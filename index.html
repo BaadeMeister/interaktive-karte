@@ -10,7 +10,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    
     <!-- Suchfeld -->
     <div class="search-container">
         <input id="search" type="text" placeholder="Suche">
@@ -30,26 +29,6 @@
 
     <!-- Externe Skripte -->
     <script src="map.js"></script>
-    <script>
-        // Funktion für die Suchleiste
-        function searchLocation() {
-            const query = document.getElementById('search').value;
-            if (query.trim() === "") {
-                alert("Bitte gib einen gültigen Ort oder Stadtteil ein.");
-                return;
-            }
-
-            // Beispielhafter Fokus auf Hamburg-Koordinaten
-            map.setView([53.5511, 9.9937], 12);
-            alert("Suche nach '" + query + "' wird implementiert.");
-        }
-
-        // Enter-Taste für Suche aktivieren
-        document.getElementById('search').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                searchLocation();
-            }
-        });
-    </script>
+    <script src="search.js"></script>
 </body>
 </html>
