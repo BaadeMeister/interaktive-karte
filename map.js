@@ -49,6 +49,7 @@ function updateMarkers(locations) {
         markerArray.push(marker);
 
         marker.on("click", () => {
+            highlightListItem(document.querySelector(`[data-index="${index}"]`));
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
             } else {
@@ -64,6 +65,17 @@ function updateMarkers(locations) {
     });
 }
 
+// Eintrag in der Liste hervorheben
+function highlightListItem(listItem) {
+    document.querySelectorAll("#locations-list li").forEach(item => {
+        item.classList.remove("highlighted");
+    });
+    if (listItem) {
+        listItem.classList.add("highlighted");
+        listItem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+}
+
 // Mobile Info anzeigen
 function showMobileInfo(location) {
     const mobileInfo = document.querySelector(".mobile-info");
@@ -74,6 +86,12 @@ function showMobileInfo(location) {
         Preis: ${location.priceRange}
     `;
     mobileInfo.classList.add("active");
+}
+
+// Mobile Info ausblenden
+function hideMobileInfo() {
+    const mobileInfo = document.querySelector(".mobile-info");
+    mobileInfo.classList.remove("active");
 }
 
 // Daten laden
