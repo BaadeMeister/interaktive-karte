@@ -1,5 +1,23 @@
 [
-    {"name": "Rathaus Hamburg", "coords": [53.5504, 9.9922] },
-    {"name": "Elbphilharmonie", "coords": [53.5413, 9.9840] },
-    {"name": "Landungsbrücken", "coords": [53.5450, 9.9744] }
+    {
+        "name": "Rathaus Hamburg",
+        "coords": [53.5504, 9.9922],
+        "image": "https://example.com/images/rathaus.jpg",
+        "priceRange": "€€",
+        "specialization": "Kinder"
+    },
+    {
+        "name": "Elbphilharmonie",
+        "coords": [53.5413, 9.9840],
+        "image": "https://example.com/images/elbphilharmonie.jpg",
+        "priceRange": "€€€",
+        "specialization": "Sonstiges"
+    },
+    {
+        "name": "Landungsbrücken",
+        "coords": [53.5450, 9.9744],
+        "image": "https://example.com/images/landungsbruecken.jpg",
+        "priceRange": "€",
+        "specialization": "Afro"
+    }
 ]
