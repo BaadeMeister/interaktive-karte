@@ -1,53 +1,7 @@
-/* Allgemeine Einstellungen für das gesamte Dokument */
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Verhindert Scroll-Leisten */
-    font-family: Arial, sans-serif;
-}
-
-/* Suchleiste */
-.search-container {
-    position: absolute; /* Über der Karte positioniert */
-    top: 10px; /* Abstand von oben */
-    left: 50%; /* Zentrierung */
-    transform: translateX(-50%); /* Korrektur für Zentrierung */
-    background-color: rgba(255, 255, 255, 0.9); /* Transparenter Hintergrund */
-    padding: 10px 15px;
-    border-radius: 8px; /* Runde Ecken */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten für Tiefe */
-    z-index: 1000; /* Über der Karte */
-    display: flex; /* Flexbox für Input und Button */
-    align-items: center;
-    gap: 10px; /* Abstand zwischen Input und Button */
-}
-
-.search-container input {
-    padding: 5px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.search-container button {
-    padding: 5px 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.search-container button:hover {
-    background-color: #0056b3;
-}
-
 /* Filterleiste */
 .filter-container {
     position: absolute;
-    top: 60px; /* Unterhalb der Suchleiste */
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
@@ -56,8 +10,8 @@ html, body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: flex;
-    flex-wrap: wrap; /* Zeilenumbruch bei kleinen Bildschirmen */
-    gap: 10px; /* Abstand zwischen Filtern */
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .filter-container select {
@@ -67,95 +21,13 @@ html, body {
     font-size: 14px;
 }
 
-/* Karte */
-#map {
-    width: 100vw; /* 100% der sichtbaren Breite */
-    height: 100vh; /* 100% der sichtbaren Höhe */
-    margin: 0;
-    padding: 0;
-    border: none; /* Entfernt Ränder */
-    box-sizing: border-box; /* Bezieht Padding und Border in die Größe mit ein */
-}
-
-/* Popup-Styles für Vorschaubilder */
-.popup-content img {
-    width: 100px; /* Maximale Breite des Vorschaubilds */
-    height: auto; /* Automatische Höhe, um das Seitenverhältnis beizubehalten */
-    display: block; /* Block-Level-Element für korrekte Darstellung */
-    margin-bottom: 10px; /* Abstand unter dem Bild */
-}
-
-/* Zusätzliche globale Einstellungen */
-body {
-    background-color: #f5f5f5; /* Freundlicher Hintergrund */
-    color: #333; /* Standard-Schriftfarbe */
-}
-
-/* Seitenleiste */
-.sidebar {
-    width: 25%;
-    height: 100vh;
-    float: left;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    padding: 15px;
-    box-sizing: border-box;
-    border-right: 1px solid #ccc;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    font-size: 18px;
-    text-align: center;
-}
-
-#locations-list li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    list-style: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#locations-list li:hover {
-    background-color: #f0f0f0;
-}
-
-#locations-list img {
-    width: 100px;
-    height: auto;
-    margin-top: 5px;
-}
-
-/* Mobile Ansicht */
+/* Sidebar Anpassungen */
 @media (max-width: 600px) {
-    .search-container input {
-        width: 80%; /* Reduzierte Breite auf kleinen Geräten */
-    }
-
-    .search-container {
-        width: 90%; /* Container passt sich besser an */
-        left: 5%; /* Zentriert den Container */
-        transform: none; /* Kein zentrierter Offset */
-    }
-
-    .filter-container {
-        flex-direction: column; /* Filter untereinander anzeigen */
-        gap: 5px;
-    }
-
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        float: none;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
+        display: none; /* Sidebar ausblenden */
     }
 
     #map {
-        width: 100%; /* Karte füllt die gesamte Breite */
-        height: calc(100vh - 200px); /* Platz für Such- und Filterleiste */
+        height: 100vh; /* Karte füllt die Höhe */
     }
 }
