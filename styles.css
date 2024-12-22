@@ -108,10 +108,29 @@ html, body {
     padding: 10px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    max-height: 150px; /* Maximale Höhe einstellen */
+    overflow: hidden; /* Verhindert Überlauf */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .mobile-info.hidden {
     display: none;
+}
+
+.mobile-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.mobile-info div {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    flex: 1;
 }
 
 /* Popup-Bilder */
