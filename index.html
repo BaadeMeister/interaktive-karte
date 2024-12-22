@@ -51,8 +51,8 @@
     .catch(error => console.error('Fehler beim Laden der Daten:', error));
 
 
-        // Suchfunktion
-        function searchLocation() {
+// Suchfunktion
+function searchLocation() {
     var query = document.getElementById('search').value;
 
     // Geokodierungs-API verwenden, um Koordinaten zu erhalten
@@ -79,6 +79,14 @@
         })
         .catch(error => console.error('Fehler bei der Geokodierung:', error));
 }
+
+// Event-Listener für Enter-Taste hinzufügen
+document.getElementById('search').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Verhindert das Standard-Formular-Verhalten
+        searchLocation(); // Ruft die Suchfunktion auf
+    }
+});
 
     </script>
 </body>
