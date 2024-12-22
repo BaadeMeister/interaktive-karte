@@ -1,20 +1,22 @@
-var map = L.map('map').setView([53.5511, 9.9937], 12); // Startkoordinaten Hamburg
+// Karte initialisieren mit Startkoordinaten für Hamburg
+var map = L.map('map').setView([53.5511, 9.9937], 12);
 
+// OpenStreetMap-Tiles laden
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
     subdomains: 'abcd',
     maxZoom: 19
 }).addTo(map);
 
+// Variablen für Marker und Standortdaten
 let markerArray = [];
 let locationsData = [];
 
-
-// Sidebar befüllen
+// Sidebar befüllen (sortiert nach PLZ)
 function populateSidebar(locations) {
     locations.sort((a, b) => a.zip.localeCompare(b.zip));
     const listContainer = document.getElementById("locations-list");
-    listContainer.innerHTML = "";
+    listContainer.innerHTML = ""; // Alte Inhalte löschen
 
     locations.forEach((location, index) => {
         const listItem = document.createElement("li");
@@ -28,89 +30,42 @@ function populateSidebar(locations) {
         `;
         listItem.dataset.index = index;
 
+        // Klick-Event für die Liste
         listItem.addEventListener("click", () => {
-            map.setView(location.coords, 14);
-            markerArray[index].openPopup();
+            map.setView(location.coords, 14); // Karte zentrieren
+            markerArray[index].openPopup(); // Popup öffnen
         });
 
         listContainer.appendChild(listItem);
     });
 }
 
-// Filter anwenden
-function applyFilters() {
-    const price = document.getElementById("price-filter").value;
-    const district = document.getElementById("district-filter").value;
-    const type = document.getElementById("type-filter").value;
-    const chain = document.getElementById("chain-filter").value;
-
-    const filteredLocations = locationsData.filter(location => {
-        return (
-            (price === "" || location.priceRange === price) &&
-            (district === "" || location.district === district) &&
-            (type === "" || location.type === type) &&
-            (chain === "" || location.chain === chain)
-        );
-    });
-
-    updateMarkers(filteredLocations);
-    populateSidebar(filteredLocations);
-}
-
-// Marker aktualisieren
+// Marker aktualisieren basierend auf den Standortdaten
 function updateMarkers(locations) {
+    // Alte Marker von der Karte entfernen
     markerArray.forEach(marker => map.removeLayer(marker));
-    markerArray = [];
+    markerArray = []; // Marker-Array zurücksetzen
 
+    // Neue Marker hinzufügen
     locations.forEach(location => {
         const marker = L.marker(location.coords).addTo(map);
         markerArray.push(marker);
+
+        // Popup-Inhalt definieren
         const popupContent = `<strong>${location.name}</strong><br>${location.address}`;
         marker.bindPopup(popupContent);
     });
 }
 
-// Daten laden
+// Daten laden und Marker sowie Sidebar initialisieren
 fetch('locations.json')
     .then(response => response.json())
     .then(data => {
-        locationsData = data;
-        populateSidebar(data);
-        updateMarkers(data);
-
-        // Dynamische Filteroptionen
-        populateFilterOptions(data);
+        locationsData = data; // Standortdaten speichern
+        populateSidebar(data); // Sidebar befüllen
+        updateMarkers(data); // Marker hinzufügen
     })
     .catch(error => console.error('Fehler beim Laden der Daten:', error));
 
-// Dynamische Filteroptionen
-function populateFilterOptions(data) {
-    const districtSelect = document.getElementById("district-filter");
-    const typeSelect = document.getElementById("type-filter");
-    const chainSelect = document.getElementById("chain-filter");
-
-    const districts = [...new Set(data.map(item => item.district))].sort();
-    const types = [...new Set(data.map(item => item.type))].sort();
-    const chains = [...new Set(data.map(item => item.chain))].sort();
-
-    districts.forEach(district => {
-        const option = document.createElement("option");
-        option.value = district;
-        option.textContent = district;
-        districtSelect.appendChild(option);
-    });
-
-    types.forEach(type => {
-        const option = document.createElement("option");
-        option.value = type;
-        option.textContent = type;
-        typeSelect.appendChild(option);
-    });
-
-    chains.forEach(chain => {
-        const option = document.createElement("option");
-        option.value = chain;
-        option.textContent = chain;
-        chainSelect.appendChild(option);
-    });
-}
+// Dynamische Filteroptionen deaktiviert (falls benötigt, einfach aktivieren)
+// function populateFilterOptions(data) { ... }
