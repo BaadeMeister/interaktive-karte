@@ -2,14 +2,14 @@
     {
         "name": "Rathaus Hamburg",
         "coords": [53.5504, 9.9922],
-        "image": "https://example.com/images/rathaus.jpg",
+        "image": "https://img.freepik.com/fotos-premium/nahaufnahme-eines-eichhoernchens-auf-einem-holzpfosten_1048944-30370286.jpg?w=1380",
         "priceRange": "€€",
         "specialization": "Kinder"
     },
     {
         "name": "Elbphilharmonie",
         "coords": [53.5413, 9.9840],
-        "image": "https://example.com/images/elbphilharmonie.jpg",
+        "image": "https://www.blog.tillhub.de/hs-fs/hubfs/friseur-tipps-guter-service-1.jpg?width=943&height=629&name=friseur-tipps-guter-service-1.jpg",
         "priceRange": "€€€",
         "specialization": "Sonstiges"
     },
