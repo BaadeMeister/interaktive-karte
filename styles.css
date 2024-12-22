@@ -137,13 +137,6 @@ html, body {
     white-space: nowrap;
 }
 
-/* Popup-Bilder */
-.popup-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
 /* Mobile Ansicht */
 @media (max-width: 600px) {
