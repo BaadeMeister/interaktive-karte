@@ -9,45 +9,41 @@ html, body {
 /* Suchleiste */
 .search-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
 .search-container input {
-    padding: 8px 12px;
-    width: 70%;
+    padding: 10px;
+    width: 300px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
 .search-container button {
-    padding: 8px 16px;
+    padding: 10px 15px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
-}
-
-.search-container button:hover {
-    background-color: #0056b3;
+    font-size: 16px;
 }
 
 /* Sidebar */
 .sidebar {
     width: 25%;
-    height: calc(100vh - 70px);
+    height: 100vh;
     float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
@@ -55,38 +51,27 @@ html, body {
     border-right: 1px solid #ccc;
 }
 
-.sidebar h2 {
-    margin-top: 0;
-    font-size: 18px;
-    text-align: center;
-}
-
 #locations-list li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 15px;
     padding: 10px;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    transition: box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 #locations-list li:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
 }
 
 #locations-list img {
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-}
-
-/* Hervorgehobener Eintrag */
-.highlighted {
-    border-color: #007bff;
-    box-shadow: 0 0 8px #007bff;
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    border: none; /* Rand entfernen */
 }
 
 /* Karte */
@@ -101,15 +86,4 @@ html, body {
     max-width: 100%;
     height: auto;
     border-radius: 6px;
-}
-
-/* Mobile Ansicht */
-@media (max-width: 600px) {
-    .sidebar {
-        display: none;
-    }
-
-    #map {
-        width: 100%;
-    }
 }
