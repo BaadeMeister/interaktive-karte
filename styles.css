@@ -94,12 +94,18 @@ html, body {
 
 /* Popup-Bilder */
 .popup-content img {
-    max-width: 100%; /* Maximale Breite relativ zum Container */
-    max-height: 120px; /* Maximale Höhe, um die Größe zu begrenzen */
-    object-fit: cover; /* Schneidet das Bild bei Bedarf zu, um es einzupassen */
-    border-radius: 4px; /* Optionale Abrundung der Ecken */
-    display: block; /* Verhindert übermäßigen Abstand */
+    max-width: 150px; /* Maximale Breite */
+    max-height: 100px; /* Maximale Höhe */
+    object-fit: cover; /* Schneidet das Bild bei Bedarf zu */
+    border-radius: 4px;
+    display: block;
     margin: 0 auto; /* Zentriert das Bild */
+}
+
+/* Popup-Container */
+.popup-content {
+    text-align: center; /* Zentriere den Inhalt */
+    width: 200px; /* Einheitliche Breite */
 }
 
 /* Karte */
@@ -154,7 +160,7 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 80px); /* Platz für Kurzinfo berücksichtigt */
     }
 
     .search-container {
@@ -171,7 +177,7 @@ html, body {
     }
 
     .leaflet-control-zoom {
-        display: none;
+        display: none; /* Zoom-Button ausblenden */
     }
 
     .leaflet-control-attribution {
