@@ -72,7 +72,7 @@ html, body {
     padding: 10px;
     background: white;
     border-radius: 6px;
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 #locations-list li:hover {
@@ -82,13 +82,14 @@ html, body {
 #locations-list img {
     width: 60px;
     height: 60px;
-    border-radius: 0;
+    border-radius: 4px;
 }
 
 /* Hervorgehobener Eintrag */
 .highlighted {
     border: 2px solid #007bff;
     box-shadow: 0 0 8px #007bff;
+    background-color: #f0f8ff;
 }
 
 /* Karte */
@@ -109,11 +110,10 @@ html, body {
     padding: 10px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    height: 80px; /* Feste Höhe */
+    display: none; /* Standardmäßig ausgeblendet */
     display: flex;
     align-items: center;
     gap: 10px;
-    display: none; /* Standardmäßig ausgeblendet */
 }
 
 .mobile-info.active {
@@ -141,7 +141,7 @@ html, body {
 .popup-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 0;
+    border-radius: 4px;
     cursor: pointer;
 }
 
