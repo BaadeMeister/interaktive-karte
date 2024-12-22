@@ -12,6 +12,24 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 let markerArray = [];
 let locationsData = [];
 
+// Marker-Icons
+const defaultIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34]
+});
+
+const highlightedIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34]
+});
+
+// Hervorhebungen verwalten
+let activeMarker = null;
+
 // Sidebar aktualisieren
 function populateSidebar(locations) {
     const listContainer = document.getElementById("locations-list");
@@ -32,29 +50,19 @@ function populateSidebar(locations) {
         listItem.addEventListener("click", () => {
             map.setView(location.coords, 14);
             highlightListItem(listItem);
+
+            // Marker hervorheben
+            if (activeMarker) {
+                activeMarker.setIcon(defaultIcon);
+            }
+            const marker = markerArray[index];
+            marker.setIcon(highlightedIcon);
+            activeMarker = marker;
         });
 
         listContainer.appendChild(listItem);
     });
 }
-
-// Marker-Icon für Hervorhebung
-const defaultIcon = L.icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34]
-});
-
-const highlightedIcon = L.icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png', // Beispiel für ein farblich abweichendes Icon
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34]
-});
-
-// Hervorhebungen verwalten
-let activeMarker = null;
 
 // Marker aktualisieren
 function updateMarkers(locations) {
@@ -66,13 +74,14 @@ function updateMarkers(locations) {
         markerArray.push(marker);
 
         marker.on("click", () => {
+            highlightListItem(document.querySelector(`[data-index="${index}"]`));
+
             if (activeMarker) {
                 activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
             }
             marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
             activeMarker = marker;
 
-            highlightListItem(document.querySelector(`[data-index="${index}"]`));
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
             } else {
@@ -92,8 +101,6 @@ function updateMarkers(locations) {
         });
     });
 }
-
-
 
 // Eintrag in der Liste hervorheben
 function highlightListItem(listItem) {
