@@ -115,11 +115,29 @@ html, body {
 
     #map {
         width: 100%;
+        height: calc(100vh - 60px); /* Suchleiste berücksichtigt */
     }
 
     .search-container {
-        width: 90%;
-        left: 5%;
+        position: relative;
+        top: 0;
+        left: 0;
         transform: none;
+        width: 100%;
+        margin: 0;
+        padding: 8px;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 1000;
+    }
+
+    /* Zoom-Button ausblenden */
+    .leaflet-control-zoom {
+        display: none;
+    }
+
+    /* Leaflet Attribution anpassen */
+    .leaflet-control-attribution {
+        font-size: 10px; /* Größe reduzieren */
     }
 }
