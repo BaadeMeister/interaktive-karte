@@ -185,12 +185,12 @@ html, body {
     }
 }
 
+/* Marker-Styles */
 .leaflet-marker-icon {
     transition: transform 0.3s ease;
 }
 
 .leaflet-marker-icon.highlighted {
     transform: scale(1.2); /* Marker vergrößern */
-    filter: hue-rotate(180deg); /* Farbe ändern */
+    filter: hue-rotate(90deg); /* Farbe ändern */
 }
-
