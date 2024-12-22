@@ -24,12 +24,16 @@ html, body {
 
 .search-container input {
     padding: 6px 10px;
-    width: 180px; /* Angepasste Breite */
+    width: 200px; /* Kürzere Breite */
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
-    font-style: italic; /* Optional für Vorschautext */
+    font-style: italic; /* Placeholder bleibt kursiv */
     color: #555;
+}
+
+.search-container input:focus {
+    font-style: normal; /* Eingegebener Text wird normal */
 }
 
 .search-container button {
@@ -80,9 +84,9 @@ html, body {
 }
 
 #locations-list img {
-    max-width: 100%; /* Maximalbreite */
-    height: auto; /* Seitenverhältnis beibehalten */
-    max-height: 150px; /* Maximalhöhe */
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
     display: block;
     margin-top: 5px;
 }
@@ -101,24 +105,24 @@ html, body {
 /* Zoom-Buttons und Leaflet-Text anpassen */
 .leaflet-control-zoom {
     position: absolute;
-    top: 80px; /* Abstand unter der Suchleiste */
+    top: 80px;
     right: 10px;
 }
 
 .leaflet-control-attribution {
-    font-size: 10px; /* Textgröße reduzieren */
-    bottom: 5px; /* Etwas höher positionieren */
+    font-size: 10px;
+    bottom: 5px;
 }
 
 /* Mobile Ansicht */
 @media (max-width: 600px) {
     .sidebar {
-        display: none; /* Sidebar ausblenden */
+        display: none;
     }
 
     #map {
         width: 100%;
-        height: calc(100vh - 70px); /* Platz für die Suchleiste */
+        height: calc(100vh - 70px);
     }
 
     .search-container {
@@ -129,7 +133,6 @@ html, body {
         width: 90%;
         margin: 0 auto;
         padding: 8px;
-        box-sizing: border-box;
         border-radius: 12px;
         background-color: rgba(255, 255, 255, 0.9);
         display: flex;
@@ -137,7 +140,7 @@ html, body {
     }
 
     .search-container input {
-        width: 70%; /* Reduzierte Breite für Mobilgeräte */
+        width: 70%;
         font-size: 12px;
         padding: 6px;
     }
@@ -148,11 +151,11 @@ html, body {
     }
 
     .leaflet-control-zoom {
-        top: 70px; /* Abstand für die Suchleiste */
+        top: 70px;
         right: 10px;
     }
 
     .leaflet-control-attribution {
-        font-size: 8px; /* Textgröße reduzieren */
+        font-size: 8px;
     }
 }
