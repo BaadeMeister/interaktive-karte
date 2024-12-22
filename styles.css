@@ -94,11 +94,13 @@ html, body {
 
 /* Popup-Bilder */
 .popup-content img {
-    max-width: 200px; /* Begrenzung der Breite */
-    height: auto; /* Automatische Höhenanpassung */
-    border-radius: 4px; /* Optional: Abrundung der Ecken */
+    max-width: 100%; /* Maximale Breite relativ zum Container */
+    max-height: 120px; /* Maximale Höhe, um die Größe zu begrenzen */
+    object-fit: cover; /* Schneidet das Bild bei Bedarf zu, um es einzupassen */
+    border-radius: 4px; /* Optionale Abrundung der Ecken */
+    display: block; /* Verhindert übermäßigen Abstand */
+    margin: 0 auto; /* Zentriert das Bild */
 }
-
 
 /* Karte */
 #map {
