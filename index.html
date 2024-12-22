@@ -32,19 +32,24 @@
 
 
         // JSON-Daten laden und Marker hinzufügen
-        fetch('locations.json')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(location => {
-                    // Popup-Inhalt
-                    var popupContent = `
-                        <b>${location.name}</b><br>
-                        <b>Koordinaten:</b> ${location.coords[0]}, ${location.coords[1]}
-                    `;
-                    L.marker(location.coords).addTo(map).bindPopup(popupContent);
-                });
-            })
-            .catch(error => console.error('Fehler beim Laden der Daten:', error));
+     fetch('locations.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(location => {
+            // Popup-Inhalt mit erweiterten Informationen
+            var popupContent = `
+                <div class="popup-content">
+                    <img src="${location.image}" alt="${location.name}">
+                    <strong>${location.name}</strong><br>
+                    Preisbereich: ${location.priceRange}<br>
+                    Spezialisierung: ${location.specialization}
+                </div>
+            `;
+            L.marker(location.coords).addTo(map).bindPopup(popupContent);
+        });
+    })
+    .catch(error => console.error('Fehler beim Laden der Daten:', error));
+
 
         // Suchfunktion
         function searchLocation() {
