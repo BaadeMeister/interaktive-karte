@@ -13,35 +13,36 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .search-container input {
     padding: 5px;
-    width: 300px;
+    width: 200px; /* Kürzere Breite */
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
 }
 
 .search-container button {
-    padding: 5px 10px;
+    padding: 0;
+    background: none;
     border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.search-container button:hover {
-    background-color: #0056b3;
+.search-container button img {
+    width: 18px; /* Größe der Lupe */
+    height: 18px;
 }
 
 /* Sidebar */
@@ -114,30 +115,33 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 50px); /* Platz für die Suchleiste */
+        height: calc(100vh - 60px); /* Platz für die Suchleiste */
     }
 
     .search-container {
-        position: absolute; /* Über die Karte positioniert */
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
         width: 90%;
-        padding: 8px 10px;
+        margin: 0 auto;
+        padding: 5px 10px;
         box-sizing: border-box;
         border-radius: 8px;
         background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: space-between;
     }
 
     .search-container input {
-        width: 65%;
+        width: 70%; /* Reduzierte Breite für Mobilgeräte */
         font-size: 12px;
         padding: 5px;
     }
 
-    .search-container button {
-        font-size: 12px;
-        padding: 5px;
+    .search-container button img {
+        width: 16px; /* Kleinere Lupe für Mobilgeräte */
+        height: 16px;
     }
 
     .leaflet-control-zoom {
