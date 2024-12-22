@@ -48,26 +48,43 @@ function updateMarkers(locations) {
         const marker = L.marker(location.coords).addTo(map);
         markerArray.push(marker);
 
+        const popupContent = `
+            <div class="popup-content">
+                <img src="${location.image}" alt="${location.name}">
+                <strong>${location.name}</strong><br>
+                Preis: ${location.priceRange}
+            </div>
+        `;
+        marker.bindPopup(popupContent);
+
         marker.on("click", () => {
-            updateMobileInfo(location);
+            highlightListItem(document.querySelector(`[data-index="${index}"]`));
+            if (window.innerWidth <= 600) {
+                showMobileInfo(location);
+            }
         });
     });
 }
 
-// Mobilinfo aktualisieren
-function updateMobileInfo(location) {
-    const mobileInfo = document.getElementById("mobile-info");
-    const mobileInfoContent = document.getElementById("mobile-info-content");
+// Eintrag hervorheben
+function highlightListItem(listItem) {
+    document.querySelectorAll("#locations-list li").forEach(item => {
+        item.classList.remove("highlighted");
+    });
+    listItem.classList.add("highlighted");
+    listItem.scrollIntoView({ behavior: "smooth", block: "center" });
+}
 
-    mobileInfoContent.innerHTML = `
-        <img src="${location.image}" alt="${location.name}">
-        <div>
-            <strong>${location.name}</strong><br>
-            ${location.address.split(',')[0]}<br>
-            Preis: ${location.priceRange}
-        </div>
+// Mobile Info anzeigen
+function showMobileInfo(location) {
+    const mobileInfo = document.querySelector(".mobile-info");
+    mobileInfo.querySelector("img").src = location.image;
+    mobileInfo.querySelector("div").innerHTML = `
+        <strong>${location.name}</strong><br>
+        ${location.address}<br>
+        Preis: ${location.priceRange}
     `;
-    mobileInfo.classList.remove("hidden");
+    mobileInfo.classList.add("active");
 }
 
 // Daten laden
