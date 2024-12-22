@@ -34,5 +34,89 @@
         "district": "St. Pauli",
         "type": "Barber",
         "chain": "Frei"
+    },
+    {
+        "name": "Schanzenfriseur",
+        "coords": [53.5647, 9.9665],
+        "address": "Schulterblatt 30, 20357 Hamburg",
+        "zip": "20357",
+        "image": "https://example.com/images/schanzenfriseur.jpg",
+        "priceRange": "€€",
+        "specialization": "Herren",
+        "district": "Schanzenviertel",
+        "type": "Modern",
+        "chain": "Frei"
+    },
+    {
+        "name": "Winterhuder Haarstudio",
+        "coords": [53.5954, 10.0153],
+        "address": "Hudtwalckerstraße 12, 22299 Hamburg",
+        "zip": "22299",
+        "image": "https://example.com/images/winterhuder-haarstudio.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Winterhude",
+        "type": "Klassisch",
+        "chain": "Kette"
+    },
+    {
+        "name": "Barmbeker Barber",
+        "coords": [53.5830, 10.0318],
+        "address": "Fuhlsbüttler Straße 100, 22305 Hamburg",
+        "zip": "22305",
+        "image": "https://example.com/images/barmbeker-barber.jpg",
+        "priceRange": "€",
+        "specialization": "Afro",
+        "district": "Barmbek",
+        "type": "Barber",
+        "chain": "Frei"
+    },
+    {
+        "name": "Eppendorfer Stylist",
+        "coords": [53.5800, 9.9880],
+        "address": "Eppendorfer Landstraße 58, 20251 Hamburg",
+        "zip": "20251",
+        "image": "https://example.com/images/eppendorfer-stylist.jpg",
+        "priceRange": "€€",
+        "specialization": "Damen & Herren",
+        "district": "Eppendorf",
+        "type": "Modern",
+        "chain": "Kette"
+    },
+    {
+        "name": "Haarstudio Altona",
+        "coords": [53.5540, 9.9358],
+        "address": "Große Bergstraße 25, 22767 Hamburg",
+        "zip": "22767",
+        "image": "https://example.com/images/haarstudio-altona.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Altona",
+        "type": "Beauty",
+        "chain": "Frei"
+    },
+    {
+        "name": "Wilhelmsburger Frisör",
+        "coords": [53.5080, 9.9908],
+        "address": "Veringstraße 12, 21107 Hamburg",
+        "zip": "21107",
+        "image": "https://example.com/images/wilhelmsburger-frisoer.jpg",
+        "priceRange": "€",
+        "specialization": "Herren",
+        "district": "Wilhelmsburg",
+        "type": "Barber",
+        "chain": "Frei"
+    },
+    {
+        "name": "Haarlounge Blankenese",
+        "coords": [53.5561, 9.7936],
+        "address": "Blankeneser Bahnhofstraße 10, 22587 Hamburg",
+        "zip": "22587",
+        "image": "https://example.com/images/haarstudio-blankenese.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Blankenese",
+        "type": "Modern",
+        "chain": "Kette"
     }
 ]
