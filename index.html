@@ -15,7 +15,7 @@
         <input id="search" type="text" placeholder="Stadtteil oder Ort eingeben">
         <button onclick="searchLocation()">Suchen</button>
     </div>
-    
+
     <!-- Filterleiste -->
     <div class="filter-container">
         <select id="price-filter" onchange="applyFilters()">
@@ -26,28 +26,20 @@
         </select>
         <select id="district-filter" onchange="applyFilters()">
             <option value="">Stadtteil</option>
-            <option value="Altona">Altona</option>
-            <option value="Eimsbüttel">Eimsbüttel</option>
-            <option value="Harburg">Harburg</option>
         </select>
         <select id="type-filter" onchange="applyFilters()">
             <option value="">Art</option>
-            <option value="Barber">Barber</option>
-            <option value="Klassisch">Klassisch</option>
-            <option value="Beauty">Beauty</option>
         </select>
         <select id="chain-filter" onchange="applyFilters()">
             <option value="">Kette oder freier Friseur</option>
-            <option value="Kette">Kette</option>
-            <option value="Frei">Frei</option>
         </select>
     </div>
 
-    <!-- Sidebar für Desktop -->
+    <!-- Sidebar -->
     <div class="sidebar">
         <h2>Friseure in Hamburg</h2>
         <ul id="locations-list">
-            <!-- Friseure werden hier dynamisch eingefügt -->
+            <!-- Dynamische Inhalte -->
         </ul>
     </div>
 
