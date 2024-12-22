@@ -21,12 +21,14 @@ function populateSidebar(locations) {
     locations.forEach((location, index) => {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
-            <strong>${location.name}</strong><br>
-            Adresse: ${location.address}<br>
-            PLZ: ${location.zip}<br>
-            Preisbereich: ${location.priceRange}<br>
-            Spezialisierung: ${location.specialization}<br>
-            <img src="${location.image}" alt="${location.name}">
+            <div class="list-item">
+                <img src="${location.image}" alt="${location.name}" class="list-item-image">
+                <div class="list-item-details">
+                    <strong>${location.name}</strong><br>
+                    ${location.address.split(',')[0]}<br>
+                    Preisbereich: ${location.priceRange}
+                </div>
+            </div>
         `;
         listItem.dataset.index = index;
 
@@ -34,6 +36,7 @@ function populateSidebar(locations) {
         listItem.addEventListener("click", () => {
             map.setView(location.coords, 14); // Karte zentrieren
             markerArray[index].openPopup(); // Popup öffnen
+            highlightListItem(listItem);
         });
 
         listContainer.appendChild(listItem);
@@ -52,9 +55,32 @@ function updateMarkers(locations) {
         markerArray.push(marker);
 
         // Popup-Inhalt definieren
-        const popupContent = `<strong>${location.name}</strong><br>${location.address}`;
+        const popupContent = `
+            <div class="popup-content">
+                <img src="${location.image}" alt="${location.name}" class="popup-image">
+                <strong>${location.name}</strong><br>
+                Preisbereich: ${location.priceRange}<br>
+                <a href="${location.link}" class="popup-link">Mehr Details</a>
+            </div>
+        `;
         marker.bindPopup(popupContent);
+
+        // Event für Marker-Klick
+        marker.on('click', () => {
+            const listItem = document.querySelector(`[data-index="${locations.indexOf(location)}"]`);
+            highlightListItem(listItem);
+        });
     });
+}
+
+// Listelement hervorheben
+function highlightListItem(listItem) {
+    const allItems = document.querySelectorAll("#locations-list li");
+    allItems.forEach(item => item.classList.remove("highlighted"));
+    listItem.classList.add("highlighted");
+
+    // Scrollen, um das Element zu zentrieren
+    listItem.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 // Daten laden und Marker sowie Sidebar initialisieren
