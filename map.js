@@ -12,15 +12,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 let markerArray = [];
 let locationsData = [];
 
-// Koordinaten für bekannte Stadtteile/Orte
-const locationCoordinates = {
-    "harburg": [53.4606, 9.9834],
-    "altona": [53.5542, 9.9356],
-    "eimsbüttel": [53.5734, 9.9512],
-    "altstadt": [53.5494, 9.9933],
-    "st. pauli": [53.5508, 9.9630]
-};
-
 // Sidebar befüllen (sortiert nach PLZ)
 function populateSidebar(locations) {
     locations.sort((a, b) => a.zip.localeCompare(b.zip));
@@ -64,22 +55,6 @@ function updateMarkers(locations) {
         const popupContent = `<strong>${location.name}</strong><br>${location.address}`;
         marker.bindPopup(popupContent);
     });
-}
-
-// Funktion für die Suchleiste
-function searchLocation() {
-    const query = document.getElementById('search').value.trim().toLowerCase();
-    
-    if (query === "") {
-        alert("Bitte gib einen gültigen Ort oder Stadtteil ein.");
-        return;
-    }
-
-    if (locationCoordinates[query]) {
-        map.setView(locationCoordinates[query], 14); // Karte auf den Ort zentrieren
-    } else {
-        alert(`Kein passender Ort für '${query}' gefunden.`);
-    }
 }
 
 // Daten laden und Marker sowie Sidebar initialisieren
