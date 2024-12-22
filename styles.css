@@ -1,71 +1,129 @@
-// Karte initialisieren mit Startkoordinaten für Hamburg
-var map = L.map('map').setView([53.5511, 9.9937], 12);
-
-// OpenStreetMap-Tiles laden
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
-
-// Variablen für Marker und Standortdaten
-let markerArray = [];
-let locationsData = [];
-
-// Sidebar befüllen (sortiert nach PLZ)
-function populateSidebar(locations) {
-    locations.sort((a, b) => a.zip.localeCompare(b.zip));
-    const listContainer = document.getElementById("locations-list");
-    listContainer.innerHTML = ""; // Alte Inhalte löschen
-
-    locations.forEach((location, index) => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <strong>${location.name}</strong><br>
-            Adresse: ${location.address}<br>
-            PLZ: ${location.zip}<br>
-            Preisbereich: ${location.priceRange}<br>
-            Spezialisierung: ${location.specialization}<br>
-            <img src="${location.image}" alt="${location.name}">
-        `;
-        listItem.dataset.index = index;
-
-        // Klick-Event für die Liste
-        listItem.addEventListener("click", () => {
-            map.setView(location.coords, 14); // Karte zentrieren
-            markerArray[index].openPopup(); // Popup öffnen
-        });
-
-        listContainer.appendChild(listItem);
-    });
+/* Allgemeine Einstellungen */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-// Marker aktualisieren basierend auf den Standortdaten
-function updateMarkers(locations) {
-    // Alte Marker von der Karte entfernen
-    markerArray.forEach(marker => map.removeLayer(marker));
-    markerArray = []; // Marker-Array zurücksetzen
-
-    // Neue Marker hinzufügen
-    locations.forEach(location => {
-        const marker = L.marker(location.coords).addTo(map);
-        markerArray.push(marker);
-
-        // Popup-Inhalt definieren
-        const popupContent = `<strong>${location.name}</strong><br>${location.address}`;
-        marker.bindPopup(popupContent);
-    });
+/* Suchleiste */
+.search-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-// Daten laden und Marker sowie Sidebar initialisieren
-fetch('locations.json')
-    .then(response => response.json())
-    .then(data => {
-        locationsData = data; // Standortdaten speichern
-        populateSidebar(data); // Sidebar befüllen
-        updateMarkers(data); // Marker hinzufügen
-    })
-    .catch(error => console.error('Fehler beim Laden der Daten:', error));
+.search-container input {
+    padding: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
 
-// Dynamische Filteroptionen deaktiviert (falls benötigt, einfach aktivieren)
-// function populateFilterOptions(data) { ... }
+.search-container button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 25%;
+    height: 100vh;
+    float: left;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    padding: 15px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+#locations-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    list-style: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#locations-list li:hover {
+    background-color: #f0f0f0;
+}
+
+#locations-list img {
+    max-width: 100%; /* Maximalbreite */
+    height: auto; /* Seitenverhältnis beibehalten */
+    max-height: 150px; /* Maximalhöhe */
+    display: block;
+    margin-top: 5px;
+}
+
+/* Karte */
+#map {
+    width: 75%;
+    float: right;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Zoom-Buttons und Leaflet-Text anpassen */
+.leaflet-control-zoom {
+    position: absolute;
+    top: 80px; /* Abstand unter der Suchleiste */
+    right: 10px;
+}
+
+.leaflet-control-attribution {
+    font-size: 10px; /* Textgröße reduzieren */
+}
+
+/* Mobile Ansicht */
+@media (max-width: 600px) {
+    .sidebar {
+        display: none; /* Sidebar ausblenden */
+    }
+
+    #map {
+        width: 100%;
+        height: calc(100vh - 50px); /* Platz für Suchleiste */
+    }
+
+    .search-container {
+        width: 90%;
+        left: 5%;
+        transform: none;
+    }
+
+    .leaflet-control-zoom {
+        top: 50px; /* Abstand für die Suchleiste */
+        right: 10px;
+    }
+}
