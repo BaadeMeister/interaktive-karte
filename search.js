@@ -14,14 +14,8 @@ function searchLocation() {
                 var lat = parseFloat(location.lat);
                 var lon = parseFloat(location.lon);
 
-                // Karte zentrieren
+                // Karte zentrieren (ohne Popup)
                 map.setView([lat, lon], 14);
-
-                // Optional: Popup anzeigen
-                L.popup()
-                    .setLatLng([lat, lon])
-                    .setContent(`<b>${location.display_name}</b>`)
-                    .openOn(map);
             } else {
                 // Keine Treffer in Hamburg -> Suche in Deutschland
                 searchInGermany(query);
@@ -43,14 +37,8 @@ function searchInGermany(query) {
                 var lat = parseFloat(location.lat);
                 var lon = parseFloat(location.lon);
 
-                // Karte zentrieren
+                // Karte zentrieren (ohne Popup)
                 map.setView([lat, lon], 14);
-
-                // Optional: Popup anzeigen
-                L.popup()
-                    .setLatLng([lat, lon])
-                    .setContent(`<b>${location.display_name}</b>`)
-                    .openOn(map);
             } else {
                 alert("Ort nicht gefunden. Bitte einen gültigen Ort eingeben.");
             }
