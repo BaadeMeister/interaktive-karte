@@ -38,16 +38,40 @@ function populateSidebar(locations) {
     });
 }
 
+// Marker-Icon für Hervorhebung
+const defaultIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34]
+});
+
+const highlightedIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png', // Beispiel für ein farblich abweichendes Icon
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34]
+});
+
+// Hervorhebungen verwalten
+let activeMarker = null;
+
 // Marker aktualisieren
 function updateMarkers(locations) {
     markerArray.forEach(marker => map.removeLayer(marker));
     markerArray = [];
 
     locations.forEach((location, index) => {
-        const marker = L.marker(location.coords).addTo(map);
+        const marker = L.marker(location.coords, { icon: defaultIcon }).addTo(map);
         markerArray.push(marker);
 
         marker.on("click", () => {
+            if (activeMarker) {
+                activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
+            }
+            marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
+            activeMarker = marker;
+
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
@@ -68,6 +92,8 @@ function updateMarkers(locations) {
         });
     });
 }
+
+
 
 // Eintrag in der Liste hervorheben
 function highlightListItem(listItem) {
