@@ -52,7 +52,9 @@ function updateMarkers(locations) {
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
             } else {
-                L.popup()
+                L.popup({
+                    offset: L.point(0, -20) // Popup leicht über dem Marker anzeigen
+                })
                     .setLatLng(location.coords)
                     .setContent(`
                         <div class="popup-content">
@@ -81,16 +83,21 @@ function highlightListItem(listItem) {
 // Mobile Info anzeigen
 function showMobileInfo(location) {
     const mobileInfo = document.querySelector("#mobile-info");
-    const mobileImage = document.querySelector("#mobile-info-image");
-    const mobileContent = document.querySelector("#mobile-info-content");
-
-    mobileImage.src = location.image;
-    mobileContent.innerHTML = `
-        <strong>${location.name}</strong><br>
-        ${location.address}<br>
-        Preis: ${location.priceRange}
+    mobileInfo.innerHTML = `
+        <img src="${location.image}" alt="${location.name}">
+        <div>
+            <strong>${location.name}</strong><br>
+            ${location.address}<br>
+            Preis: ${location.priceRange}
+        </div>
     `;
     mobileInfo.classList.add("active");
+}
+
+// Mobile Info ausblenden
+function hideMobileInfo() {
+    const mobileInfo = document.querySelector("#mobile-info");
+    mobileInfo.classList.remove("active");
 }
 
 // Daten laden
