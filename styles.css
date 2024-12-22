@@ -108,8 +108,7 @@ html, body {
     padding: 10px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    max-height: 80px; /* Maximale Höhe angepasst */
-    overflow: hidden; /* Verhindert Überlauf */
+    height: 80px; /* Feste Höhe */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -152,7 +151,7 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 80px); /* Kurzinfo berücksichtigt */
+        height: calc(100vh - 80px); /* Platz für Kurzinfo berücksichtigt */
     }
 
     .search-container {
