@@ -4,16 +4,15 @@ html, body {
     padding: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
+    height: 100%;
 }
 
 /* Suchleiste */
 .search-container {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
-    max-width: 600px;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 8px 12px;
     border-radius: 8px;
@@ -50,24 +49,25 @@ html, body {
 /* Sidebar */
 .sidebar {
     width: 25%;
-    height: calc(100vh - 50px);
+    height: 100vh;
     float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
     padding: 10px;
+    box-sizing: border-box;
     border-right: 1px solid #ddd;
 }
 
-.sidebar h2 {
-    margin-top: 0;
-    font-size: 16px;
-    text-align: center;
+#locations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 #locations-list li {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 10px;
     padding: 10px;
     background: white;
@@ -75,14 +75,14 @@ html, body {
     transition: box-shadow 0.2s ease;
 }
 
+#locations-list li:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 #locations-list img {
     width: 60px;
     height: 60px;
     border-radius: 4px;
-}
-
-#locations-list li:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Hervorgehobener Eintrag */
@@ -94,8 +94,8 @@ html, body {
 /* Karte */
 #map {
     width: 75%;
+    height: 100vh;
     float: right;
-    height: calc(100vh - 50px);
     margin: 0;
 }
 
@@ -103,7 +103,7 @@ html, body {
 .popup-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 0; /* Keine Ränder */
+    border-radius: 0;
     cursor: pointer;
 }
 
@@ -115,7 +115,6 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 50px);
     }
 
     .search-container {
