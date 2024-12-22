@@ -10,34 +10,37 @@ html, body {
 .search-container {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 600px;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .search-container input {
-    padding: 8px 12px;
-    width: 70%;
+    padding: 6px 10px;
+    flex: 1;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 14px;
 }
 
 .search-container button {
-    padding: 8px 16px;
+    padding: 6px 12px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    transition: background-color 0.2s ease;
 }
 
 .search-container button:hover {
@@ -47,40 +50,39 @@ html, body {
 /* Sidebar */
 .sidebar {
     width: 25%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 50px);
     float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
-    padding: 15px;
-    border-right: 1px solid #ccc;
+    padding: 10px;
+    border-right: 1px solid #ddd;
 }
 
 .sidebar h2 {
     margin-top: 0;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
 }
 
 #locations-list li {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 10px;
     padding: 10px;
     background: white;
-    border: none;
     border-radius: 6px;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s ease;
 }
 
-#locations-list img.list-item-image {
+#locations-list img {
     width: 60px;
     height: 60px;
-    border-radius: 4px; /* Keine Ränder mehr */
+    border-radius: 4px;
 }
 
 #locations-list li:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Hervorgehobener Eintrag */
@@ -93,11 +95,12 @@ html, body {
 #map {
     width: 75%;
     float: right;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 50px);
+    margin: 0;
 }
 
 /* Popup-Bilder */
-.popup-content img.popup-image {
+.popup-content img {
     max-width: 100%;
     height: auto;
     border-radius: 0; /* Keine Ränder */
@@ -112,5 +115,12 @@ html, body {
 
     #map {
         width: 100%;
+        height: calc(100vh - 50px);
+    }
+
+    .search-container {
+        width: 90%;
+        left: 5%;
+        transform: none;
     }
 }
