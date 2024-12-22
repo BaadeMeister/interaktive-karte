@@ -4,42 +4,40 @@ html, body {
     padding: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    height: 100%;
 }
 
 /* Suchleiste */
 .search-container {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .search-container input {
-    padding: 6px 10px;
-    flex: 1;
+    padding: 8px 12px;
+    width: 70%;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 14px;
 }
 
 .search-container button {
-    padding: 6px 12px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.2s ease;
 }
 
 .search-container button:hover {
@@ -49,19 +47,18 @@ html, body {
 /* Sidebar */
 .sidebar {
     width: 25%;
-    height: 100vh;
+    height: calc(100vh - 70px);
     float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
-    padding: 10px;
-    box-sizing: border-box;
-    border-right: 1px solid #ddd;
+    padding: 15px;
+    border-right: 1px solid #ccc;
 }
 
-#locations-list {
-    list-style: none;
+.sidebar ul {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 #locations-list li {
@@ -71,40 +68,68 @@ html, body {
     margin-bottom: 10px;
     padding: 10px;
     background: white;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s;
 }
 
 #locations-list li:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #locations-list img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 4px;
 }
 
 /* Hervorgehobener Eintrag */
 .highlighted {
-    border: 2px solid #007bff;
+    border-color: #007bff;
     box-shadow: 0 0 8px #007bff;
 }
 
 /* Karte */
 #map {
     width: 75%;
-    height: 100vh;
     float: right;
-    margin: 0;
+    height: calc(100vh - 70px);
 }
 
 /* Popup-Bilder */
-.popup-content img {
+.leaflet-popup-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 0;
-    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Kurzinfo-Bereich für Mobilansicht */
+.marker-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.marker-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+}
+
+.marker-info.hidden {
+    display: none;
+}
+
+.marker-info #marker-info-content {
+    flex: 1;
 }
 
 /* Mobile Ansicht */
@@ -115,29 +140,5 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 60px); /* Suchleiste berücksichtigt */
-    }
-
-    .search-container {
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        margin: 0;
-        padding: 8px;
-        border-radius: 0;
-        box-shadow: none;
-        z-index: 1000;
-    }
-
-    /* Zoom-Button ausblenden */
-    .leaflet-control-zoom {
-        display: none;
-    }
-
-    /* Leaflet Attribution anpassen */
-    .leaflet-control-attribution {
-        font-size: 10px; /* Größe reduzieren */
     }
 }
