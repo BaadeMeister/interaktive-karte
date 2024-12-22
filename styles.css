@@ -10,7 +10,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Zeilenumbruch bei kleinen Bildschirmen */
     gap: 10px;
 }
 
@@ -21,13 +21,72 @@
     font-size: 14px;
 }
 
-/* Sidebar Anpassungen */
+/* Sidebar */
+.sidebar {
+    width: 25%; /* Sidebar nimmt 25% der Breite ein */
+    height: 100vh; /* Vollbildhöhe */
+    float: left; /* Sidebar links */
+    overflow-y: auto; /* Scrollen bei vielen Einträgen */
+    background-color: #f5f5f5;
+    padding: 15px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+#locations-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#locations-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#locations-list li:hover {
+    background-color: #f0f0f0;
+}
+
+#locations-list img {
+    max-width: 100%; /* Bild passt sich der Breite an */
+    height: auto; /* Seitenverhältnis bleibt erhalten */
+    margin-top: 5px;
+}
+
+/* Karte */
+#map {
+    width: 75%; /* Karte nimmt 75% der Breite ein */
+    float: right; /* Karte rechts von der Sidebar */
+    height: 100vh; /* Vollbildhöhe */
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Mobile Ansicht */
 @media (max-width: 600px) {
     .sidebar {
         display: none; /* Sidebar ausblenden */
     }
 
     #map {
-        height: 100vh; /* Karte füllt die Höhe */
+        width: 100%; /* Karte nimmt die gesamte Breite ein */
+        height: 100vh; /* Karte füllt die gesamte Höhe */
+    }
+
+    .filter-container {
+        flex-direction: column; /* Filter untereinander anzeigen */
+        gap: 5px;
     }
 }
