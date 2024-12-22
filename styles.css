@@ -101,10 +101,11 @@ html, body {
 
 /* Mobile Kurzinfo */
 .mobile-info {
-    position: absolute;
+    position: fixed; /* Fixierte Position für mobiles Layout */
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 10px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -112,14 +113,15 @@ html, body {
     display: flex;
     align-items: center;
     gap: 10px;
+    display: none; /* Standardmäßig ausgeblendet */
 }
 
-.mobile-info.hidden {
-    display: none;
+.mobile-info.active {
+    display: flex; /* Aktiviert bei mobilen Ansichten */
 }
 
 .mobile-info img {
-    width: 60px; /* Reduzierte Breite */
+    width: 60px;
     height: 60px;
     object-fit: cover;
     border-radius: 4px;
@@ -167,13 +169,11 @@ html, body {
         z-index: 1000;
     }
 
-    /* Zoom-Button ausblenden */
     .leaflet-control-zoom {
-        display: none;
+        display: none; /* Zoom-Button ausblenden */
     }
 
-    /* Leaflet Attribution anpassen */
     .leaflet-control-attribution {
-        font-size: 10px;
+        font-size: 10px; /* Größe reduzieren */
     }
 }
