@@ -1,186 +1,122 @@
-/* Allgemeine Einstellungen */
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-}
-
-/* Suchleiste */
-.search-container {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 8px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-container input {
-    padding: 6px 10px;
-    width: 200px; /* Angepasste Breite */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    font-style: italic; /* Placeholder bleibt kursiv */
-    color: #555;
-}
-
-.search-container input:focus {
-    font-style: normal; /* Eingegebener Text wird normal */
-}
-
-.search-container button {
-    padding: 6px 12px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.search-container button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
-/* Sidebar */
-.sidebar {
-    width: 25%;
-    height: 100vh;
-    float: left;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    padding: 15px;
-    box-sizing: border-box;
-    border-right: 1px solid #ccc;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    font-size: 18px;
-    text-align: center;
-}
-
-#locations-list li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    list-style: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-#locations-list li:hover {
-    background-color: #f0f0f0;
-    border-color: #007bff;
-}
-
-#locations-list img {
-    max-width: 100%;
-    height: auto;
-    max-height: 150px;
-    display: block;
-    margin-top: 5px;
-}
-
-/* Marker-Popup-Styling */
-.leaflet-popup-content {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.leaflet-popup-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 8px;
-}
-
-/* Karte */
-#map {
-    width: 75%;
-    float: right;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-}
-
-/* Zoom-Buttons und Leaflet-Text anpassen */
-.leaflet-control-zoom {
-    position: absolute;
-    top: 80px;
-    right: 10px;
-}
-
-.leaflet-control-attribution {
-    font-size: 10px;
-    bottom: 5px;
-}
-
-/* Mobile Ansicht */
-@media (max-width: 600px) {
-    .sidebar {
-        display: none;
+[
+    {
+        "name": "Rathaus Hamburg",
+        "coords": [53.5504, 9.9922],
+        "address": "Rathausmarkt 1, 20095 Hamburg",
+        "zip": "20095",
+        "image": "https://img.freepik.com/fotos-premium/nahaufnahme-eines-eichhoernchens-auf-einem-holzpfosten_1048944-30370286.jpg?w=1380",
+        "priceRange": "€€",
+        "specialization": "Kinder",
+        "district": "Altstadt",
+        "type": "Klassisch",
+        "chain": "Frei"
+    },
+    {
+        "name": "Elbphilharmonie",
+        "coords": [53.5413, 9.9840],
+        "address": "Platz der Deutschen Einheit 1, 20457 Hamburg",
+        "zip": "20457",
+        "image": "https://www.blog.tillhub.de/hs-fs/hubfs/friseur-tipps-guter-service-1.jpg?width=943&height=629&name=friseur-tipps-guter-service-1.jpg",
+        "priceRange": "€€€",
+        "specialization": "Sonstiges",
+        "district": "HafenCity",
+        "type": "Beauty",
+        "chain": "Kette"
+    },
+    {
+        "name": "Landungsbrücken",
+        "coords": [53.5450, 9.9744],
+        "address": "St. Pauli Hafenstraße 1, 20359 Hamburg",
+        "zip": "20359",
+        "image": "https://example.com/images/landungsbruecken.jpg",
+        "priceRange": "€",
+        "specialization": "Afro",
+        "district": "St. Pauli",
+        "type": "Barber",
+        "chain": "Frei"
+    },
+    {
+        "name": "Schanzenfriseur",
+        "coords": [53.5647, 9.9665],
+        "address": "Schulterblatt 30, 20357 Hamburg",
+        "zip": "20357",
+        "image": "https://example.com/images/schanzenfriseur.jpg",
+        "priceRange": "€€",
+        "specialization": "Herren",
+        "district": "Schanzenviertel",
+        "type": "Modern",
+        "chain": "Frei"
+    },
+    {
+        "name": "Winterhuder Haarstudio",
+        "coords": [53.5954, 10.0153],
+        "address": "Hudtwalckerstraße 12, 22299 Hamburg",
+        "zip": "22299",
+        "image": "https://example.com/images/winterhuder-haarstudio.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Winterhude",
+        "type": "Klassisch",
+        "chain": "Kette"
+    },
+    {
+        "name": "Barmbeker Barber",
+        "coords": [53.5830, 10.0318],
+        "address": "Fuhlsbüttler Straße 100, 22305 Hamburg",
+        "zip": "22305",
+        "image": "https://example.com/images/barmbeker-barber.jpg",
+        "priceRange": "€",
+        "specialization": "Afro",
+        "district": "Barmbek",
+        "type": "Barber",
+        "chain": "Frei"
+    },
+    {
+        "name": "Eppendorfer Stylist",
+        "coords": [53.5800, 9.9880],
+        "address": "Eppendorfer Landstraße 58, 20251 Hamburg",
+        "zip": "20251",
+        "image": "https://example.com/images/eppendorfer-stylist.jpg",
+        "priceRange": "€€",
+        "specialization": "Damen & Herren",
+        "district": "Eppendorf",
+        "type": "Modern",
+        "chain": "Kette"
+    },
+    {
+        "name": "Haarstudio Altona",
+        "coords": [53.5540, 9.9358],
+        "address": "Große Bergstraße 25, 22767 Hamburg",
+        "zip": "22767",
+        "image": "https://example.com/images/haarstudio-altona.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Altona",
+        "type": "Beauty",
+        "chain": "Frei"
+    },
+    {
+        "name": "Wilhelmsburger Frisör",
+        "coords": [53.5080, 9.9908],
+        "address": "Veringstraße 12, 21107 Hamburg",
+        "zip": "21107",
+        "image": "https://example.com/images/wilhelmsburger-frisoer.jpg",
+        "priceRange": "€",
+        "specialization": "Herren",
+        "district": "Wilhelmsburg",
+        "type": "Barber",
+        "chain": "Frei"
+    },
+    {
+        "name": "Haarlounge Blankenese",
+        "coords": [53.5561, 9.7936],
+        "address": "Blankeneser Bahnhofstraße 10, 22587 Hamburg",
+        "zip": "22587",
+        "image": "https://example.com/images/haarstudio-blankenese.jpg",
+        "priceRange": "€€€",
+        "specialization": "Damen",
+        "district": "Blankenese",
+        "type": "Modern",
+        "chain": "Kette"
     }
-
-    #map {
-        width: 100%;
-        height: calc(100vh - 70px);
-    }
-
-    .search-container {
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-        width: 90%;
-        margin: 0 auto;
-        padding: 8px;
-        border-radius: 12px;
-        background-color: rgba(255, 255, 255, 0.9);
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .search-container input {
-        width: 70%;
-        font-size: 12px;
-        padding: 6px;
-    }
-
-    .search-container button {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    #locations-list li {
-        display: flex;
-        align-items: center;
-    }
-
-    #locations-list img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-    }
-
-    .leaflet-control-zoom {
-        top: 70px;
-        right: 10px;
-    }
-
-    .leaflet-control-attribution {
-        font-size: 8px;
-    }
-}
+]
