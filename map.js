@@ -31,7 +31,6 @@ function populateSidebar(locations) {
 
         listItem.addEventListener("click", () => {
             map.setView(location.coords, 14);
-            markerArray[index].openPopup();
             highlightListItem(listItem);
         });
 
@@ -53,13 +52,16 @@ function updateMarkers(locations) {
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
             } else {
-                marker.bindPopup(`
-                    <div class="popup-content">
-                        <img src="${location.image}" alt="${location.name}">
-                        <strong>${location.name}</strong><br>
-                        Preis: ${location.priceRange}
-                    </div>
-                `).openPopup();
+                L.popup()
+                    .setLatLng(location.coords)
+                    .setContent(`
+                        <div class="popup-content">
+                            <img src="${location.image}" alt="${location.name}">
+                            <strong>${location.name}</strong><br>
+                            Preis: ${location.priceRange}
+                        </div>
+                    `)
+                    .openOn(map);
             }
         });
     });
@@ -78,20 +80,17 @@ function highlightListItem(listItem) {
 
 // Mobile Info anzeigen
 function showMobileInfo(location) {
-    const mobileInfo = document.querySelector(".mobile-info");
-    mobileInfo.querySelector("img").src = location.image;
-    mobileInfo.querySelector("div").innerHTML = `
+    const mobileInfo = document.querySelector("#mobile-info");
+    const mobileImage = document.querySelector("#mobile-info-image");
+    const mobileContent = document.querySelector("#mobile-info-content");
+
+    mobileImage.src = location.image;
+    mobileContent.innerHTML = `
         <strong>${location.name}</strong><br>
         ${location.address}<br>
         Preis: ${location.priceRange}
     `;
     mobileInfo.classList.add("active");
-}
-
-// Mobile Info ausblenden
-function hideMobileInfo() {
-    const mobileInfo = document.querySelector(".mobile-info");
-    mobileInfo.classList.remove("active");
 }
 
 // Daten laden
