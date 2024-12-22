@@ -1,3 +1,11 @@
+/* Allgemeine Einstellungen für das gesamte Dokument */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Verhindert Scroll-Leisten */
+    font-family: Arial, sans-serif;
+}
+
 /* Suchleiste */
 .search-container {
     margin: 10px;
@@ -28,11 +36,12 @@
 
 /* Karte */
 #map {
-    width: 100%;
-    height: 80vh; /* Füllt 80% der Höhe des Viewports */
+    width: 100vw; /* 100% der sichtbaren Breite */
+    height: 100vh; /* 100% der sichtbaren Höhe */
     margin: 0;
     padding: 0;
-    border: 1px solid #ccc;
+    border: none; /* Entfernt Ränder */
+    box-sizing: border-box; /* Bezieht Padding und Border in die Größe mit ein */
 }
 
 /* Popup-Styles für Vorschaubilder */
@@ -43,9 +52,15 @@
     margin-bottom: 10px; /* Abstand unter dem Bild */
 }
 
-/* Allgemein */
+/* Zusätzliche globale Einstellungen */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #f5f5f5; /* Freundlicher Hintergrund */
+    color: #333; /* Standard-Schriftfarbe */
+}
+
+/* Optionale Verbesserung für responsives Design */
+@media (max-width: 600px) {
+    .search-container input {
+        width: 80%; /* Reduzierte Breite auf kleinen Geräten */
+    }
 }
