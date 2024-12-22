@@ -9,6 +9,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 let markerArray = [];
 let locationsData = [];
 
+
 // Sidebar befüllen
 function populateSidebar(locations) {
     locations.sort((a, b) => a.zip.localeCompare(b.zip));
