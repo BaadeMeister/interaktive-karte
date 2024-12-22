@@ -48,31 +48,20 @@ function updateMarkers(locations) {
         const marker = L.marker(location.coords).addTo(map);
         markerArray.push(marker);
 
-        const popupContent = `
-            <div class="popup-content">
-                <img src="${location.image}" alt="${location.name}">
-                <strong>${location.name}</strong><br>
-                Preis: ${location.priceRange}
-            </div>
-        `;
-        marker.bindPopup(popupContent);
-
         marker.on("click", () => {
-            highlightListItem(document.querySelector(`[data-index="${index}"]`));
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
+            } else {
+                marker.bindPopup(`
+                    <div class="popup-content">
+                        <img src="${location.image}" alt="${location.name}">
+                        <strong>${location.name}</strong><br>
+                        Preis: ${location.priceRange}
+                    </div>
+                `).openPopup();
             }
         });
     });
-}
-
-// Eintrag hervorheben
-function highlightListItem(listItem) {
-    document.querySelectorAll("#locations-list li").forEach(item => {
-        item.classList.remove("highlighted");
-    });
-    listItem.classList.add("highlighted");
-    listItem.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 // Mobile Info anzeigen
