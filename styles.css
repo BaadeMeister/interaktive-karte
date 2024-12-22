@@ -44,6 +44,29 @@ html, body {
     background-color: #0056b3;
 }
 
+/* Filterleiste */
+.filter-container {
+    position: absolute;
+    top: 60px; /* Unterhalb der Suchleiste */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap; /* Zeilenumbruch bei kleinen Bildschirmen */
+    gap: 10px; /* Abstand zwischen Filtern */
+}
+
+.filter-container select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 /* Karte */
 #map {
     width: 100vw; /* 100% der sichtbaren Breite */
@@ -66,19 +89,6 @@ html, body {
 body {
     background-color: #f5f5f5; /* Freundlicher Hintergrund */
     color: #333; /* Standard-Schriftfarbe */
-}
-
-/* Optionale Verbesserung für responsives Design */
-@media (max-width: 600px) {
-    .search-container input {
-        width: 80%; /* Reduzierte Breite auf kleinen Geräten */
-    }
-
-    .search-container {
-        width: 90%; /* Container passt sich besser an */
-        left: 5%; /* Zentriert den Container */
-        transform: none; /* Kein zentrierter Offset */
-    }
 }
 
 /* Seitenleiste */
@@ -118,9 +128,34 @@ body {
     margin-top: 5px;
 }
 
-/* Karte */
-#map {
-    width: 75%;
-    float: left;
-    height: 100vh;
+/* Mobile Ansicht */
+@media (max-width: 600px) {
+    .search-container input {
+        width: 80%; /* Reduzierte Breite auf kleinen Geräten */
+    }
+
+    .search-container {
+        width: 90%; /* Container passt sich besser an */
+        left: 5%; /* Zentriert den Container */
+        transform: none; /* Kein zentrierter Offset */
+    }
+
+    .filter-container {
+        flex-direction: column; /* Filter untereinander anzeigen */
+        gap: 5px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        float: none;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #map {
+        width: 100%; /* Karte füllt die gesamte Breite */
+        height: calc(100vh - 200px); /* Platz für Such- und Filterleiste */
+    }
 }
