@@ -35,6 +35,14 @@
     border: 1px solid #ccc;
 }
 
+/* Popup-Styles für Vorschaubilder */
+.popup-content img {
+    width: 100px; /* Maximale Breite des Vorschaubilds */
+    height: auto; /* Automatische Höhe, um das Seitenverhältnis beizubehalten */
+    display: block; /* Block-Level-Element für korrekte Darstellung */
+    margin-bottom: 10px; /* Abstand unter dem Bild */
+}
+
 /* Allgemein */
 body {
     font-family: Arial, sans-serif;
