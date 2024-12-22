@@ -30,6 +30,19 @@
 
     <!-- Externe Skripte -->
     <script src="map.js"></script>
-    <script src="search.js"></script>
+    <script>
+        // Funktion für die Suchleiste
+        function searchLocation() {
+            const query = document.getElementById('search').value;
+            if (query.trim() === "") {
+                alert("Bitte gib einen gültigen Ort oder Stadtteil ein.");
+                return;
+            }
+
+            // Beispielhafter Fokus auf Hamburg-Koordinaten
+            map.setView([53.5511, 9.9937], 12);
+            alert("Suche nach '" + query + "' wird implementiert.");
+        }
+    </script>
 </body>
 </html>
