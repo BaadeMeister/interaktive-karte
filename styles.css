@@ -24,7 +24,7 @@ html, body {
 
 .search-container input {
     padding: 6px 10px;
-    width: 200px; /* Kürzere Breite */
+    width: 200px; /* Angepasste Breite */
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -76,11 +76,12 @@ html, body {
     border-bottom: 1px solid #ddd;
     list-style: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #locations-list li:hover {
     background-color: #f0f0f0;
+    border-color: #007bff;
 }
 
 #locations-list img {
@@ -89,6 +90,19 @@ html, body {
     max-height: 150px;
     display: block;
     margin-top: 5px;
+}
+
+/* Marker-Popup-Styling */
+.leaflet-popup-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.leaflet-popup-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 8px;
 }
 
 /* Karte */
@@ -148,6 +162,17 @@ html, body {
     .search-container button {
         font-size: 12px;
         padding: 6px 10px;
+    }
+
+    #locations-list li {
+        display: flex;
+        align-items: center;
+    }
+
+    #locations-list img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
     }
 
     .leaflet-control-zoom {
