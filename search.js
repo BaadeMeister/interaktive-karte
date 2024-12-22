@@ -58,3 +58,8 @@ document.getElementById('search').addEventListener('keypress', function (event) 
         searchLocation(); // Ruft die Suchfunktion auf
     }
 });
+
+// Zusätzlicher Hinweis bei fehlgeschlagenen Suchanfragen
+function showNoResultsMessage(query) {
+    alert(`Keine Ergebnisse für '${query}' gefunden. Bitte überprüfe deine Eingabe.`);
+}
