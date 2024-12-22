@@ -103,6 +103,7 @@ html, body {
 
 .leaflet-control-attribution {
     font-size: 10px; /* Textgröße reduzieren */
+    bottom: 5px; /* Etwas höher positionieren */
 }
 
 /* Mobile Ansicht */
@@ -113,17 +114,30 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 50px); /* Platz für Suchleiste */
+        height: calc(100vh - 60px); /* Platz für die Suchleiste */
     }
 
     .search-container {
-        width: 90%;
-        left: 5%;
+        position: relative; /* Über die Karte verschieben */
+        top: 0;
+        left: 0;
         transform: none;
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .search-container input {
+        width: 70%;
     }
 
     .leaflet-control-zoom {
-        top: 50px; /* Abstand für die Suchleiste */
+        top: 70px; /* Abstand für die Suchleiste */
         right: 10px;
+    }
+
+    .leaflet-control-attribution {
+        font-size: 9px; /* Textgröße reduzieren */
     }
 }
