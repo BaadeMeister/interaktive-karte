@@ -20,8 +20,8 @@ function populateSidebar(locations) {
     locations.forEach((location, index) => {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
-            <img src="${location.image}" alt="${location.name}">
-            <div>
+            <img src="${location.image}" alt="${location.name}" class="list-item-image">
+            <div class="list-item-details">
                 <strong>${location.name}</strong><br>
                 ${location.address.split(',')[0]}<br>
                 Preis: ${location.priceRange}
@@ -49,11 +49,10 @@ function updateMarkers(locations) {
         markerArray.push(marker);
 
         const popupContent = `
-            <div>
-                <img src="${location.image}" alt="${location.name}">
+            <div class="popup-content">
+                <img src="${location.image}" alt="${location.name}" class="popup-image" onclick="alert('Details für ${location.name} anzeigen')">
                 <strong>${location.name}</strong><br>
-                Preis: ${location.priceRange}<br>
-                <a href="#" onclick="alert('Details für ${location.name} anzeigen')">Details</a>
+                Preis: ${location.priceRange}
             </div>
         `;
         marker.bindPopup(popupContent);
