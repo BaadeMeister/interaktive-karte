@@ -140,6 +140,7 @@ fetch("locations.json")
         locationsData = data;
         populateSidebar(data);
         updateMarkers(data);
+        showMobileInfo(); // Standardnachricht anzeigen
     })
     .catch(error => console.error("Fehler:", error));
 
