@@ -57,7 +57,7 @@ function populateSidebar(locations) {
             map.setView(location.coords, 14);
             highlightListItem(listItem);
             highlightMarker(markerArray[index]);
-            if (window.innerWidth <= 600) showMobileInfo(location);
+            if (window.innerWidth <= 700) showMobileInfo(location);
         });
 
         listContainer.appendChild(listItem);
@@ -104,7 +104,7 @@ function updateMarkers(locations) {
         marker.on("click", () => {
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
             highlightMarker(marker);
-            if (window.innerWidth <= 600) showMobileInfo(location);
+            if (window.innerWidth <= 700) showMobileInfo(location);
         });
     });
 }
