@@ -37,7 +37,7 @@ html, body {
 
 /* Suchleiste */
 .search-container {
-    position: absolute;
+    position: absolute; /* Fixiert die Position */
     top: 10px; /* Abstand vom oberen Rand */
     left: calc(25% + 50%); /* Sidebar (25%) + Mitte der Karte */
     transform: translateX(-50%); /* Zentrierung */
@@ -46,16 +46,13 @@ html, body {
     border-radius: 8px; /* Abgerundete Ecken */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
     z-index: 1000; /* Über der Karte anzeigen */
-    width: 300px; /* Reduzierte feste Breite */
-    display: flex; /* Flexbox für Ausrichtung */
-    align-items: center; /* Zentriert vertikal */
-    gap: 8px; /* Abstand zwischen Eingabefeld und Button */
+    width: 400px; /* Feste Breite */
 }
 
 
 .search-container input {
-    flex: 1; /* Input füllt den verfügbaren Platz */
     padding: 6px 10px;
+    flex: 1;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
@@ -189,30 +186,28 @@ html, body {
     }
 
 .search-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Suchleiste über die gesamte Breite */
-    transform: none; /* Zentrierung entfernen */
-    background-color: #ffffff; /* Weißer Hintergrund */
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichte Schatten */
-    padding: 10px; /* Innenabstand */
-    border-radius: 0; /* Keine abgerundeten Ecken */
-    display: flex; /* Flexbox für Ausrichtung */
-    gap: 8px; /* Abstand zwischen Eingabefeld und Button */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
 }
 
-.search-container input {
-    flex: 1; /* Füllt die verfügbare Breite */
-    font-size: 16px; /* Größere Schrift für bessere Lesbarkeit */
-}
+    .search-container input {
+        font-size: 16px; /* Größere Schrift für bessere Lesbarkeit */
+    }
 
-.search-container button {
-    flex-shrink: 0; /* Verhindert, dass der Button schrumpft */
-    font-size: 16px; /* Einheitliche Schriftgröße */
-}
-
+    .search-container button {
+        font-size: 16px; /* Einheitliche Schriftgröße */
+    }
 
     .mobile-info {
         position: fixed;
