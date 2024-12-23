@@ -102,7 +102,7 @@ html, body {
 
 .price {
     flex-shrink: 0;
-    width: 50px; /* Festgelegte Breite für den Preisbereich */
+    width: 40px; /* Festgelegte Breite für den Preisbereich */
     text-align: left;
 }
 
