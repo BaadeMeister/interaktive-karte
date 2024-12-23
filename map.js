@@ -53,6 +53,11 @@ function populateSidebar(locations) {
 
             // Marker hervorheben
             highlightMarker(markerArray[index]);
+
+            // Mobile Ansicht: Kurzinfo anzeigen
+            if (window.innerWidth <= 600) {
+                showMobileInfo(location);
+            }
         });
 
         listContainer.appendChild(listItem);
@@ -81,20 +86,9 @@ function updateMarkers(locations) {
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
             highlightMarker(marker);
 
-            // Nur in der mobilen Ansicht Popups anzeigen
+            // Mobile Ansicht: Kurzinfo anzeigen
             if (window.innerWidth <= 600) {
-                L.popup({
-                    offset: L.point(0, -20) // Popup leicht über dem Marker anzeigen
-                })
-                    .setLatLng(location.coords)
-                    .setContent(`
-                        <div class="popup-content">
-                            <img src="${location.image}" alt="${location.name}">
-                            <strong>${location.name}</strong><br>
-                            Preis: ${location.priceRange}
-                        </div>
-                    `)
-                    .openOn(map);
+                showMobileInfo(location);
             }
         });
     });
