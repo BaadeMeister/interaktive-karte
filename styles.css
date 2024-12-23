@@ -261,3 +261,28 @@ html, body {
         font-size: 10px;
     }
 }
+
+
+/* Mindestbreite der Sidebar */
+.sidebar {
+    width: 25%; /* Standardbreite als Prozentsatz */
+    min-width: 300px; /* Mindestbreite für bessere Lesbarkeit */
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+}
+
+/* Mobile Ansicht ab 800px Einbindungsbreite */
+@media (max-width: 800px) {
+    .sidebar {
+        display: none; /* Sidebar ausblenden */
+    }
+
+    #map {
+        width: 100%; /* Karte nimmt die volle Breite ein */
+        height: calc(100vh - 80px); /* Platz für die Kurzinfo im mobilen Modus */
+    }
+}
