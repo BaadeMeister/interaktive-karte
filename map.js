@@ -133,3 +133,13 @@ fetch("locations.json")
         updateMarkers(data);
     })
     .catch(error => console.error("Fehler:", error));
+
+// Fenstergrößenänderung überwachen
+window.addEventListener('resize', () => {
+    const mobileInfo = document.querySelector("#mobile-info");
+    if (window.innerWidth > 700) {
+        // Schließe die mobile Info, wenn die Breite > 700px ist
+        mobileInfo.classList.remove("active");
+    }
+});
+
