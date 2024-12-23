@@ -71,8 +71,6 @@ html, body {
 
 #locations-list li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 10px;
     margin-bottom: 10px;
     padding: 10px;
@@ -89,9 +87,25 @@ html, body {
     width: 60px;
     height: 60px;
     border-radius: 4px;
+    align-self: center;
 }
 
-/* Tags */
+#locations-list div {
+    flex: 1;
+}
+
+/* Tags und Preis in einer Zeile */
+.price-and-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.price {
+    font-weight: bold;
+}
+
 .tags {
     display: flex;
     gap: 5px;
@@ -155,6 +169,7 @@ html, body {
     white-space: nowrap;
 }
 
+/* Mobile Tags */
 .mobile-info .tags {
     margin-top: 5px;
     justify-content: flex-start;
