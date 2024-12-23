@@ -48,8 +48,6 @@ html, body {
     white-space: nowrap; /* Verhindert Zeilenumbruch */
 }
 
-
-
 .search-container button:hover {
     background-color: #0056b3;
 }
@@ -74,8 +72,8 @@ html, body {
 
 #locations-list li {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; /* Anpassung für besseren Tag-Bereich */
+    gap: 8px;
     margin-bottom: 10px;
     padding: 10px;
     background: white;
@@ -91,12 +89,29 @@ html, body {
     width: 60px;
     height: 60px;
     border-radius: 4px;
+    align-self: center;
 }
 
 /* Hervorgehobener Eintrag */
 .highlighted {
     border: 2px solid #007bff;
     background-color: #f0f8ff;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.tag {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
 }
 
 /* Marker-Styles */
@@ -213,5 +228,14 @@ html, body {
 
     .leaflet-control-attribution {
         font-size: 10px;
+    }
+
+    #mobile-info .tags {
+        margin-top: 5px;
+    }
+
+    #mobile-info .tag {
+        font-size: 10px;
+        padding: 1px 4px;
     }
 }
