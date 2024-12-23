@@ -183,7 +183,8 @@ html, body {
 
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 120px); /* Platz für Suchleiste und Mobile Info */
+        height: calc(100vh - 110px); /* Höhe angepasst, um den Platz für die Mobile Info zu berücksichtigen */
+        margin: 0; /* Sicherstellen, dass kein zusätzlicher Außenabstand entsteht */
     }
 
     .search-container {
@@ -219,6 +220,7 @@ html, body {
         display: flex; /* Immer sichtbar */
         flex-wrap: wrap;
         gap: 10px;
+        border-top: 1px solid #ddd; /* Optional: eine Abgrenzungslinie */
     }
 }
 
