@@ -186,3 +186,37 @@ html, body {
         height: calc(100vh - 100px); /* Platz für Mobile Info */
     }
 }
+
+/* Mobile Ansicht */
+@media (max-width: 800px) {
+    .sidebar {
+        display: none; /* Sidebar ausblenden */
+    }
+
+    #map {
+        width: 100%; /* Karte nimmt die volle Breite ein */
+        height: calc(100vh - 120px); /* Platz für Suchleiste und Mobile Info */
+    }
+
+    .search-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: none; /* Zentrierung entfernen */
+        background-color: #ffffff; /* Undurchsichtig, weißer Hintergrund */
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Abhebung */
+        padding: 10px; /* Ausreichend Abstand innen */
+        border-radius: 0; /* Keine abgerundeten Ecken */
+    }
+
+    .search-container input {
+        font-size: 16px; /* Größere Schrift für bessere Lesbarkeit */
+    }
+
+    .search-container button {
+        font-size: 16px; /* Einheitliche Schriftgröße */
+    }
+}
+
