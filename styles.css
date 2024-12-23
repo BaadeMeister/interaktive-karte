@@ -199,7 +199,7 @@ html, body {
 }
 
 .mobile-info .tags {
-    margin-left: 20px; /* Fester Abstand zu den Tags */
+    margin-left: 10px; /* Fester Abstand zu den Tags */
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
