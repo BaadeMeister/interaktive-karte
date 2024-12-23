@@ -183,18 +183,6 @@ html, body {
 
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 100px); /* Platz für Mobile Info */
-    }
-}
-
-/* Mobile Ansicht */
-@media (max-width: 800px) {
-    .sidebar {
-        display: none; /* Sidebar ausblenden */
-    }
-
-    #map {
-        width: 100%; /* Karte nimmt die volle Breite ein */
         height: calc(100vh - 120px); /* Platz für Suchleiste und Mobile Info */
     }
 
@@ -217,6 +205,20 @@ html, body {
 
     .search-container button {
         font-size: 16px; /* Einheitliche Schriftgröße */
+    }
+
+    .mobile-info {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: flex; /* Immer sichtbar */
+        flex-wrap: wrap;
+        gap: 10px;
     }
 }
 
