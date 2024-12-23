@@ -183,8 +183,8 @@ html, body {
 
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 110px); /* Höhe angepasst, um den Platz für die Mobile Info zu berücksichtigen */
-        margin: 0; /* Sicherstellen, dass kein zusätzlicher Außenabstand entsteht */
+        height: calc(100vh - 80px); /* Reduzierte Höhe, um die Lücke zu schließen */
+        margin: 0; /* Kein zusätzlicher Außenabstand */
     }
 
     .search-container {
@@ -193,10 +193,10 @@ html, body {
         left: 0;
         width: 100%;
         transform: none; /* Zentrierung entfernen */
-        background-color: #ffffff; /* Undurchsichtig, weißer Hintergrund */
+        background-color: #ffffff; /* Undurchsichtiger weißer Hintergrund */
         z-index: 1000;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Abhebung */
-        padding: 10px; /* Ausreichend Abstand innen */
+        padding: 10px; /* Ausreichend Innenabstand */
         border-radius: 0; /* Keine abgerundeten Ecken */
     }
 
@@ -223,4 +223,5 @@ html, body {
         border-top: 1px solid #ddd; /* Optional: eine Abgrenzungslinie */
     }
 }
+
 
