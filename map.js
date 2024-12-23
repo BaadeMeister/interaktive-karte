@@ -42,10 +42,10 @@ function populateSidebar(locations) {
             <div>
                 <strong>${location.name}</strong><br>
                 ${location.address.split(',')[0]}<br>
-                ${location.priceRange}<br>
-                <div class="tags">
-                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
-                </div>
+                ${location.priceRange}
+            </div>
+            <div class="tags">
+                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
             </div>
         `;
         listItem.dataset.index = index;
@@ -53,14 +53,8 @@ function populateSidebar(locations) {
         listItem.addEventListener("click", () => {
             map.setView(location.coords, 14);
             highlightListItem(listItem);
-
-            // Marker hervorheben
             highlightMarker(markerArray[index]);
-
-            // Mobile Ansicht: Kurzinfo anzeigen
-            if (window.innerWidth <= 600) {
-                showMobileInfo(location);
-            }
+            if (window.innerWidth <= 600) showMobileInfo(location);
         });
 
         listContainer.appendChild(listItem);
@@ -70,10 +64,27 @@ function populateSidebar(locations) {
 // Marker hervorheben
 function highlightMarker(marker) {
     if (activeMarker) {
-        activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
+        activeMarker.setIcon(defaultIcon);
     }
-    marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
+    marker.setIcon(highlightedIcon);
     activeMarker = marker;
+}
+
+// Mobile Info anzeigen
+function showMobileInfo(location) {
+    const mobileInfo = document.querySelector("#mobile-info");
+    mobileInfo.innerHTML = `
+        <img src="${location.image}" alt="${location.name}">
+        <div>
+            <strong>${location.name}</strong><br>
+            ${location.address.split(',')[0]}<br>
+            ${location.priceRange}
+            <div class="tags">
+                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+            </div>
+        </div>
+    `;
+    mobileInfo.classList.add("active");
 }
 
 // Marker aktualisieren
@@ -88,41 +99,18 @@ function updateMarkers(locations) {
         marker.on("click", () => {
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
             highlightMarker(marker);
-
-            // Mobile Ansicht: Kurzinfo anzeigen
-            if (window.innerWidth <= 600) {
-                showMobileInfo(location);
-            }
+            if (window.innerWidth <= 600) showMobileInfo(location);
         });
     });
 }
 
 // Eintrag in der Liste hervorheben
 function highlightListItem(listItem) {
-    document.querySelectorAll("#locations-list li").forEach(item => {
-        item.classList.remove("highlighted");
-    });
+    document.querySelectorAll("#locations-list li").forEach(item => item.classList.remove("highlighted"));
     if (listItem) {
         listItem.classList.add("highlighted");
         listItem.scrollIntoView({ behavior: "smooth", block: "center" });
     }
-}
-
-// Mobile Info anzeigen
-function showMobileInfo(location) {
-    const mobileInfo = document.querySelector("#mobile-info");
-    mobileInfo.innerHTML = `
-        <img src="${location.image}" alt="${location.name}">
-        <div>
-            <strong>${location.name}</strong><br>
-            ${location.address.split(',')[0]}<br>
-            ${location.priceRange}<br>
-            <div class="tags">
-                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
-            </div>
-        </div>
-    `;
-    mobileInfo.classList.add("active");
 }
 
 // Mobile Info ausblenden
