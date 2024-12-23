@@ -17,20 +17,20 @@ html, body {
 
 /* Sidebar */
 .sidebar {
-    flex: 0 0 300px; /* Mindestbreite */
-    max-width: 400px; /* Maximale Breite */
+    flex: 0 0 25%; /* Sidebar bleibt konstant 25% der Breite */
+    min-width: 300px; /* Mindestbreite für kleinere Bildschirme */
+    max-width: 400px; /* Maximale Breite für größere Bildschirme */
     height: 100vh;
     overflow-y: auto;
     background-color: #f5f5f5;
     padding: 10px;
     box-sizing: border-box;
     border-right: 1px solid #ddd;
-    min-width: 300px; /* Für feste Breite */
 }
 
 /* Karte */
 #map {
-    flex: 1; /* Flexibles Layout */
+    flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
     height: 100vh;
     margin: 0;
 }
@@ -119,53 +119,39 @@ html, body {
 
 .price {
     flex-shrink: 0;
-    width: 40px; /* Feste Breite */
+    width: 40px; /* Feste Breite für den Preisbereich */
     text-align: left;
 }
 
 .tags {
-    margin-left: 20px;
+    margin-left: 20px; /* Abstand zwischen Preis und Tags */
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
 .tag {
-    background-color: #ccc;
+    background-color: #ccc; /* Grau statt Blau */
     color: #333;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 12px;
 }
 
-/* Mobile Ansicht */
-@media (max-width: 800px) {
-    .container {
-        flex-direction: column; /* Ändert das Layout für mobile Geräte */
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    #map {
-        width: 100%;
-        height: calc(100vh - 80px);
-    }
-
-    .mobile-info {
-        display: flex;
-    }
+/* Hervorgehobener Eintrag */
+.highlighted {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
 }
 
-/* Desktop Ansicht */
-@media (min-width: 801px) {
+/* Mobile Ansicht */
+@media (max-width: 800px) {
     .sidebar {
-        display: block;
+        display: none; /* Sidebar ausblenden */
     }
 
     #map {
-        flex: 1;
-        width: calc(100% - 300px); /* Sidebar berücksichtigen */
+        width: 100%; /* Karte nimmt die volle Breite ein */
+        height: calc(100vh - 80px); /* Platz für die Suchleiste */
     }
 }
