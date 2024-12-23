@@ -21,7 +21,7 @@ const defaultIcon = L.icon({
 });
 
 const highlightedIcon = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png', // Roter Marker
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34]
@@ -81,9 +81,8 @@ function updateMarkers(locations) {
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
             highlightMarker(marker);
 
+            // Nur in der mobilen Ansicht Popups anzeigen
             if (window.innerWidth <= 600) {
-                showMobileInfo(location);
-            } else {
                 L.popup({
                     offset: L.point(0, -20) // Popup leicht über dem Marker anzeigen
                 })
