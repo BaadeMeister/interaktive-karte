@@ -97,18 +97,19 @@ html, body {
 /* Preis und Tags */
 .price-and-tags {
     display: flex;
-    justify-content: space-between; /* Preis links, Tags rechts */
     align-items: center;
-    margin-top: 5px;
 }
 
 .price {
-    font-weight: normal; /* Entfernt Fettschrift */
-    font-size: 14px;
+    flex-shrink: 0;
+    width: 50px; /* Festgelegte Breite für den Preisbereich */
+    text-align: left;
 }
 
 .tags {
+    margin-left: 10px; /* Fester Abstand zu den Tags */
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 
