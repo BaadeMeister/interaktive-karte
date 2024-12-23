@@ -37,6 +37,7 @@ function populateSidebar(locations) {
 
     locations.forEach((location, index) => {
         const listItem = document.createElement("li");
+        listItem.classList.add("location-item"); // Klasse für Styling
         listItem.innerHTML = `
             <img src="${location.image}" alt="${location.name}">
             <div>
