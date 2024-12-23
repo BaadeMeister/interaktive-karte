@@ -102,12 +102,12 @@ html, body {
 
 .price {
     flex-shrink: 0;
-    width: 40px; /* Festgelegte Breite für den Preisbereich */
+    width: 40px; /* Feste Breite für den Preisbereich */
     text-align: left;
 }
 
 .tags {
-    margin-left: 10px; /* Fester Abstand zu den Tags */
+    margin-left: 20px; /* Abstand zwischen Preis und Tags */
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -186,10 +186,23 @@ html, body {
     white-space: nowrap;
 }
 
-/* Mobile Tags */
+/* Preis und Tags in mobiler Ansicht */
+.mobile-info .price-and-tags {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-info .price {
+    flex-shrink: 0;
+    width: 40px; /* Gleiche Breite wie in der Desktop-Ansicht */
+    text-align: left;
+}
+
 .mobile-info .tags {
-    margin-top: 5px;
-    justify-content: flex-end; /* Tags rechtsbündig */
+    margin-left: 20px; /* Fester Abstand zu den Tags */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .mobile-info .tag {
