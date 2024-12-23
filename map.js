@@ -67,31 +67,29 @@ function populateSidebar(locations) {
 // Marker hervorheben
 function highlightMarker(marker) {
     if (activeMarker) {
-        activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
+        activeMarker.setIcon(defaultIcon);
     }
-    marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
+    marker.setIcon(highlightedIcon);
     activeMarker = marker;
 }
 
 // Mobile Info anzeigen
 function showMobileInfo(location) {
     const mobileInfo = document.querySelector("#mobile-info");
-    if (mobileInfo) {
-        mobileInfo.innerHTML = `
-            <img src="${location.image}" alt="${location.name}">
-            <div>
-                <strong>${location.name}</strong><br>
-                ${location.address.split(',')[0]}<br>
-                <div class="price-and-tags">
-                    <span class="price">${location.priceRange}</span>
-                    <div class="tags">
-                        ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
-                    </div>
+    mobileInfo.innerHTML = `
+        <img src="${location.image}" alt="${location.name}">
+        <div>
+            <strong>${location.name}</strong><br>
+            ${location.address.split(',')[0]}<br>
+            <div class="price-and-tags">
+                <span class="price">${location.priceRange}</span>
+                <div class="tags">
+                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
                 </div>
             </div>
-        `;
-        mobileInfo.classList.add("active");
-    }
+        </div>
+    `;
+    mobileInfo.classList.add("active");
 }
 
 // Marker aktualisieren
@@ -104,8 +102,7 @@ function updateMarkers(locations) {
         markerArray.push(marker);
 
         marker.on("click", () => {
-            const listItem = document.querySelector(`[data-index="${index}"]`);
-            highlightListItem(listItem);
+            highlightListItem(document.querySelector(`[data-index="${index}"]`));
             highlightMarker(marker);
             if (window.innerWidth <= 600) showMobileInfo(location);
         });
@@ -124,9 +121,7 @@ function highlightListItem(listItem) {
 // Mobile Info ausblenden
 function hideMobileInfo() {
     const mobileInfo = document.querySelector("#mobile-info");
-    if (mobileInfo) {
-        mobileInfo.classList.remove("active");
-    }
+    mobileInfo.classList.remove("active");
 }
 
 // Daten laden
