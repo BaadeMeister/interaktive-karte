@@ -88,14 +88,12 @@ html, body {
 /* Hervorgehobener Eintrag */
 .highlighted {
     border: 2px solid #007bff;
-    box-shadow: 0 0 8px #007bff;
     background-color: #f0f8ff;
 }
 
 /* Marker-Styles */
 .leaflet-marker-icon.highlighted {
-    transform: scale(1.2); /* Marker vergrößern */
-    filter: hue-rotate(90deg); /* Farbe ändern */
+    filter: hue-rotate(180deg); /* Marker-Farbe ändern */
 }
 
 /* Popup-Bilder */
