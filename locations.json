@@ -9,7 +9,8 @@
         "specialization": "Kinder",
         "district": "Altstadt",
         "type": "Klassisch",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Pro Kinder", "Klassisch", "zentral"]
     },
     {
         "name": "Elbphilharmonie",
@@ -21,7 +22,8 @@
         "specialization": "Sonstiges",
         "district": "HafenCity",
         "type": "Beauty",
-        "chain": "Kette"
+        "chain": "Kette",
+        "tags": ["Exklusiv", "Kette", "Beauty"]
     },
     {
         "name": "Landungsbrücken",
@@ -33,7 +35,8 @@
         "specialization": "Afro",
         "district": "St. Pauli",
         "type": "Barber",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Afro", "Barber", "Budgetfreundlich"]
     },
     {
         "name": "Schanzenfriseur",
@@ -45,7 +48,8 @@
         "specialization": "Herren",
         "district": "Schanzenviertel",
         "type": "Modern",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Herren", "Modern", "individuell"]
     },
     {
         "name": "Winterhuder Haarstudio",
@@ -57,7 +61,8 @@
         "specialization": "Damen",
         "district": "Winterhude",
         "type": "Klassisch",
-        "chain": "Kette"
+        "chain": "Kette",
+        "tags": ["Klassisch", "Luxus", "Winterhude"]
     },
     {
         "name": "Barmbeker Barber",
@@ -69,7 +74,8 @@
         "specialization": "Afro",
         "district": "Barmbek",
         "type": "Barber",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Afro", "Barber", "Budgetfreundlich"]
     },
     {
         "name": "Eppendorfer Stylist",
@@ -81,7 +87,8 @@
         "specialization": "Damen & Herren",
         "district": "Eppendorf",
         "type": "Modern",
-        "chain": "Kette"
+        "chain": "Kette",
+        "tags": ["Damen & Herren", "Modern", "Eppendorf"]
     },
     {
         "name": "Haarstudio Altona",
@@ -93,7 +100,8 @@
         "specialization": "Damen",
         "district": "Altona",
         "type": "Beauty",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Damen", "Beauty", "zentral"]
     },
     {
         "name": "Wilhelmsburger Frisör",
@@ -105,7 +113,8 @@
         "specialization": "Herren",
         "district": "Wilhelmsburg",
         "type": "Barber",
-        "chain": "Frei"
+        "chain": "Frei",
+        "tags": ["Herren", "Barber", "Budgetfreundlich"]
     },
     {
         "name": "Haarlounge Blankenese",
@@ -117,6 +126,7 @@
         "specialization": "Damen",
         "district": "Blankenese",
         "type": "Modern",
-        "chain": "Kette"
+        "chain": "Kette",
+        "tags": ["Damen", "Luxus", "Blankenese"]
     }
 ]
