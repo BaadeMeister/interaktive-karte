@@ -54,7 +54,6 @@ html, body {
 /* Sidebar */
 .sidebar {
     width: 25%;
-    min-width: 300px; /* Mindestbreite */
     height: 100vh;
     float: left;
     overflow-y: auto;
@@ -145,7 +144,7 @@ html, body {
 
 /* Karte */
 #map {
-    width: calc(100% - 300px); /* Berechnung der Breite basierend auf der Sidebar */
+    width: 75%;
     height: 100vh;
     float: right;
     margin: 0;
@@ -195,12 +194,12 @@ html, body {
 
 .mobile-info .price {
     flex-shrink: 0;
-    width: 25px;
+    width: 25px; /* Gleiche Breite wie in der Desktop-Ansicht */
     text-align: left;
 }
 
 .mobile-info .tags {
-    margin-left: 10px;
+    margin-left: 10px; /* Fester Abstand zu den Tags */
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -212,13 +211,53 @@ html, body {
 }
 
 /* Mobile Ansicht */
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .sidebar {
-        display: none; /* Sidebar ausblenden */
+        display: none;
     }
 
     #map {
-        width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 80px); /* Platz für die Kurzinfo im mobilen Modus */
+        width: 100%;
+        height: calc(100vh - 80px);
+    }
+
+    .search-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin: 0;
+        padding: 8px;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 1000;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .search-container input {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    .search-container button {
+        flex-shrink: 0;
+        padding: 6px 10px;
+        font-size: 14px;
+        height: auto;
+        max-width: 80px;
+    }
+
+    .leaflet-control-zoom {
+        display: none;
+    }
+
+    .leaflet-control-attribution {
+        font-size: 10px;
     }
 }
