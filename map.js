@@ -63,10 +63,8 @@ function populateSidebar(locations) {
 function highlightMarker(marker) {
     if (activeMarker) {
         activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
-        activeMarker.getElement().classList.remove("highlighted"); // CSS-Klasse entfernen
     }
     marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
-    marker.getElement().classList.add("highlighted"); // CSS-Klasse hinzufügen
     activeMarker = marker;
 }
 
