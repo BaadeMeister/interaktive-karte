@@ -5,6 +5,16 @@ html, body {
     overflow: hidden;
     font-family: Arial, sans-serif;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container für Sidebar und Karte */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
 }
 
 /* Suchleiste */
@@ -53,11 +63,10 @@ html, body {
 
 /* Sidebar */
 .sidebar {
-    width: 25%;
+    flex: 0 0 25%;
     min-width: 300px; /* Mindestbreite */
-    max-width: 400px; /* Maximale Breite für große Bildschirme */
+    max-width: 400px; /* Maximale Breite */
     height: 100vh;
-    float: left;
     overflow-y: auto;
     background-color: #f5f5f5;
     padding: 10px;
@@ -146,9 +155,8 @@ html, body {
 
 /* Karte */
 #map {
-    width: calc(100% - 300px); /* Berechnung der Breite basierend auf der Sidebar */
+    flex: 1;
     height: 100vh;
-    float: right;
     margin: 0;
 }
 
