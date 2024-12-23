@@ -45,7 +45,6 @@ function populateSidebar(locations) {
                 ${location.address.split(',')[0]}<br>
                 <div class="price-and-tags">
                     <span class="price">${location.priceRange}</span>
-                    <span class="separator"> &nbsp;|&nbsp; </span>
                     <div class="tags">
                         ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
                     </div>
@@ -84,7 +83,6 @@ function showMobileInfo(location) {
             ${location.address.split(',')[0]}<br>
             <div class="price-and-tags">
                 <span class="price">${location.priceRange}</span>
-                <span class="separator"> &nbsp;|&nbsp; </span>
                 <div class="tags">
                     ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
                 </div>
