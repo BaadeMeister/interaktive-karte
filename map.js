@@ -1,5 +1,5 @@
 // Karte initialisieren
-var map = L.map('map').setView([53.5511, 9.9937], 12);
+var map = L.map('map', { zoomControl: false }).setView([53.5511, 9.9937], 12);
 
 // OpenStreetMap-Tiles
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
