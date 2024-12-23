@@ -25,6 +25,7 @@ html, body {
     padding: 10px;
     box-sizing: border-box;
     border-right: 1px solid #ddd;
+    min-width: 300px; /* Für feste Breite */
 }
 
 /* Karte */
@@ -139,6 +140,10 @@ html, body {
 
 /* Mobile Ansicht */
 @media (max-width: 800px) {
+    .container {
+        flex-direction: column; /* Ändert das Layout für mobile Geräte */
+    }
+
     .sidebar {
         display: none;
     }
@@ -146,5 +151,21 @@ html, body {
     #map {
         width: 100%;
         height: calc(100vh - 80px);
+    }
+
+    .mobile-info {
+        display: flex;
+    }
+}
+
+/* Desktop Ansicht */
+@media (min-width: 801px) {
+    .sidebar {
+        display: block;
+    }
+
+    #map {
+        flex: 1;
+        width: calc(100% - 300px); /* Sidebar berücksichtigen */
     }
 }
