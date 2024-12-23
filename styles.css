@@ -178,6 +178,18 @@ html, body {
         border-radius: 0;
         box-shadow: none;
         z-index: 1000;
+        flex-wrap: wrap; /* Zeilenumbruch ermöglichen */
+        gap: 4px;
+    }
+
+    .search-container input {
+        flex: 1 1 70%; /* Breite relativ zur Elternkomponente */
+        min-width: 0; /* Um Überlauf zu vermeiden */
+    }
+
+    .search-container button {
+        flex: 1 1 25%; /* Platz für den Button */
+        max-width: 70px; /* Maximalbreite für kleinere Bildschirme */
     }
 
     .leaflet-control-zoom {
