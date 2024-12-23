@@ -97,14 +97,13 @@ html, body {
 /* Tags und Preis in einer Zeile */
 .price-and-tags {
     display: flex;
-    justify-content: space-between; /* Preis links, Tags rechts */
     align-items: center;
+    gap: 8px;
     margin-top: 5px;
 }
 
 .price {
-    font-weight: normal; /* Entfernt Fettschrift */
-    font-size: 14px;
+    font-weight: bold;
 }
 
 .tags {
@@ -113,11 +112,17 @@ html, body {
 }
 
 .tag {
-    background-color: #ccc; /* Grau statt Blau */
+    background-color: #ccc;
     color: #333;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 12px;
+}
+
+/* Hervorgehobener Eintrag */
+.highlighted {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
 }
 
 /* Karte */
@@ -126,6 +131,53 @@ html, body {
     height: 100vh;
     float: right;
     margin: 0;
+}
+
+/* Mobile Kurzinfo */
+.mobile-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-info.active {
+    display: flex;
+}
+
+.mobile-info img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.mobile-info div {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Mobile Tags */
+.mobile-info .tags {
+    margin-top: 5px;
+    justify-content: flex-start;
+}
+
+.mobile-info .tag {
+    font-size: 10px;
+    padding: 2px 4px;
 }
 
 /* Mobile Ansicht */
