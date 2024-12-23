@@ -21,7 +21,7 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
-    box-sizing: border-box; /* Verhindert Überlauf durch Padding */
+    box-sizing: border-box;
 }
 
 .search-container input {
@@ -30,22 +30,21 @@ html, body {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    min-width: 0; /* Für kleinere Displays */
+    min-width: 0;
 }
 
 .search-container button {
     flex-shrink: 0;
-    padding: 6px 12px; /* Gleiche Höhe wie das Eingabefeld */
+    padding: 6px 12px;
     font-size: 14px;
-    height: 100%; /* Passt die Höhe an die Suchleiste an */
-    line-height: normal; /* Normalisiert die Textausrichtung */
+    height: 100%;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    white-space: nowrap; /* Verhindert Zeilenumbruch */
+    white-space: nowrap;
 }
 
 .search-container button:hover {
@@ -72,8 +71,9 @@ html, body {
 
 #locations-list li {
     display: flex;
-    flex-direction: column; /* Anpassung für besseren Tag-Bereich */
-    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
     padding: 10px;
     background: white;
@@ -89,50 +89,26 @@ html, body {
     width: 60px;
     height: 60px;
     border-radius: 4px;
-    align-self: center;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    gap: 5px;
+}
+
+.tag {
+    background-color: #ccc;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
 }
 
 /* Hervorgehobener Eintrag */
 .highlighted {
     border: 2px solid #007bff;
     background-color: #f0f8ff;
-}
-
-/* Tags */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 5px;
-}
-
-.tag {
-    background-color: #007bff;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-/* Marker-Styles */
-.leaflet-marker-icon.highlighted {
-    filter: hue-rotate(180deg); /* Marker-Farbe ändern */
-}
-
-/* Popup-Bilder */
-.popup-content img {
-    max-width: 150px; /* Maximale Breite */
-    max-height: 100px; /* Maximale Höhe */
-    object-fit: cover; /* Schneidet das Bild bei Bedarf zu */
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto; /* Zentriert das Bild */
-}
-
-/* Popup-Container */
-.popup-content {
-    text-align: center; /* Zentriere den Inhalt */
-    width: 200px; /* Einheitliche Breite */
 }
 
 /* Karte */
@@ -179,6 +155,16 @@ html, body {
     white-space: nowrap;
 }
 
+.mobile-info .tags {
+    margin-top: 5px;
+    justify-content: flex-start;
+}
+
+.mobile-info .tag {
+    font-size: 10px;
+    padding: 2px 4px;
+}
+
 /* Mobile Ansicht */
 @media (max-width: 600px) {
     .sidebar {
@@ -187,7 +173,7 @@ html, body {
 
     #map {
         width: 100%;
-        height: calc(100vh - 80px); /* Platz für Kurzinfo berücksichtigt */
+        height: calc(100vh - 80px);
     }
 
     .search-container {
@@ -216,26 +202,17 @@ html, body {
 
     .search-container button {
         flex-shrink: 0;
-        padding: 6px 10px; /* Etwas schmaler für kleine Displays */
+        padding: 6px 10px;
         font-size: 14px;
-        height: auto; /* Passt sich dynamisch an */
-        max-width: 80px; /* Begrenzt die Breite */
+        height: auto;
+        max-width: 80px;
     }
 
     .leaflet-control-zoom {
-        display: none; /* Zoom-Button ausblenden */
+        display: none;
     }
 
     .leaflet-control-attribution {
         font-size: 10px;
-    }
-
-    #mobile-info .tags {
-        margin-top: 5px;
-    }
-
-    #mobile-info .tag {
-        font-size: 10px;
-        padding: 1px 4px;
     }
 }
