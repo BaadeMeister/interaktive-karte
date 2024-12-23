@@ -74,23 +74,32 @@ function highlightMarker(marker) {
 }
 
 // Mobile Info anzeigen
-function showMobileInfo(location) {
+function showMobileInfo(location = null) {
     const mobileInfo = document.querySelector("#mobile-info");
-    mobileInfo.innerHTML = `
-        <img src="${location.image}" alt="${location.name}">
-        <div>
-            <strong>${location.name}</strong><br>
-            ${location.address.split(',')[0]}<br>
-            <div class="price-and-tags">
-                <span class="price">${location.priceRange}</span>
-                <div class="tags">
-                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+    if (location) {
+        mobileInfo.innerHTML = `
+            <img src="${location.image}" alt="${location.name}">
+            <div>
+                <strong>${location.name}</strong><br>
+                ${location.address.split(',')[0]}<br>
+                <div class="price-and-tags">
+                    <span class="price">${location.priceRange}</span>
+                    <div class="tags">
+                        ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
+    } else {
+        mobileInfo.innerHTML = `
+            <div style="text-align: center; padding: 10px;">
+                <strong>Wähle einen Marker auf der Karte aus, um Details zu sehen.</strong>
+            </div>
+        `;
+    }
     mobileInfo.classList.add("active");
 }
+
 
 // Marker aktualisieren
 function updateMarkers(locations) {
