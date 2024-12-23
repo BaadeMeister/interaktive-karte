@@ -34,16 +34,22 @@ html, body {
 }
 
 .search-container button {
-    padding: 6px 12px;
+    flex-shrink: 0;
+    padding: 6px 10px; /* Padding angepasst, damit die Höhe gleich ist wie beim Input */
+    font-size: 14px;
+    max-width: 60px; /* Beibehaltung der Breite */
+    text-align: center;
+    height: 100%; /* Höhe an den Container angepasst */
+    line-height: 1; /* Zentriert den Text */
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
     transition: background-color 0.2s ease;
     white-space: nowrap; /* Button bleibt kompakt */
 }
+
 
 .search-container button:hover {
     background-color: #0056b3;
