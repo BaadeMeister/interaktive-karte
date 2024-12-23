@@ -182,18 +182,22 @@ html, body {
         z-index: 1000;
         display: flex;
         gap: 4px;
+        align-items: center;
     }
 
     .search-container input {
-        flex: 1 1 auto;
+        flex: 1; /* Inputfeld füllt den verfügbaren Platz */
         min-width: 0;
+        font-size: 14px;
+        padding: 6px 8px;
     }
 
     .search-container button {
-        flex-shrink: 0;
-        padding: 6px 10px;
-        max-width: 80px;
+        flex-shrink: 0; /* Verhindert, dass der Button schrumpft */
+        padding: 6px 12px;
         font-size: 14px;
+        max-width: 20%; /* Verhindert, dass der Button zu breit wird */
+        white-space: nowrap;
     }
 
     .leaflet-control-zoom {
