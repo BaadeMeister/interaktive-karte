@@ -144,6 +144,37 @@ html, body {
     background-color: #f0f8ff;
 }
 
+/* Mobile Info */
+.mobile-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; /* Standardmäßig ausgeblendet */
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mobile-info.active {
+    display: flex; /* Sichtbar machen, wenn aktiv */
+}
+
+.mobile-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.mobile-info div {
+    font-size: 14px;
+    flex: 1;
+}
+
 /* Mobile Ansicht */
 @media (max-width: 800px) {
     .sidebar {
@@ -152,6 +183,6 @@ html, body {
 
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 80px); /* Platz für die Suchleiste */
+        height: calc(100vh - 100px); /* Platz für Mobile Info */
     }
 }
