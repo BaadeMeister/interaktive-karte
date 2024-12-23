@@ -21,6 +21,7 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
+    box-sizing: border-box; /* Verhindert Überlauf durch Padding */
 }
 
 .search-container input {
@@ -183,21 +184,22 @@ html, body {
         display: flex;
         gap: 4px;
         align-items: center;
+        box-sizing: border-box;
     }
 
     .search-container input {
-        flex: 1; /* Inputfeld füllt den verfügbaren Platz */
+        flex: 1 1 auto;
         min-width: 0;
-        font-size: 14px;
         padding: 6px 8px;
+        font-size: 14px;
     }
 
     .search-container button {
-        flex-shrink: 0; /* Verhindert, dass der Button schrumpft */
-        padding: 6px 8px; /* Weniger Padding, um Platz zu sparen */
-        font-size: 12px; /* Kleinere Schriftgröße für mobile Ansicht */
-        max-width: 70px; /* Begrenzung der Breite */
-        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 6px 8px;
+        font-size: 12px;
+        max-width: 60px; /* Reduzierte Breite für mobile Ansicht */
+        text-align: center;
     }
 
     .leaflet-control-zoom {
