@@ -17,9 +17,8 @@ html, body {
 
 /* Sidebar */
 .sidebar {
-    flex: 0 0 25%; /* Sidebar bleibt konstant 25% der Breite */
-    min-width: 300px; /* Mindestbreite für kleinere Bildschirme */
-    max-width: 400px; /* Maximale Breite für größere Bildschirme */
+    flex: 0 0 300px; /* Mindestbreite */
+    max-width: 400px; /* Maximale Breite */
     height: 100vh;
     overflow-y: auto;
     background-color: #f5f5f5;
@@ -30,7 +29,7 @@ html, body {
 
 /* Karte */
 #map {
-    flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
+    flex: 1; /* Flexibles Layout */
     height: 100vh;
     margin: 0;
 }
@@ -119,39 +118,33 @@ html, body {
 
 .price {
     flex-shrink: 0;
-    width: 40px; /* Feste Breite für den Preisbereich */
+    width: 40px; /* Feste Breite */
     text-align: left;
 }
 
 .tags {
-    margin-left: 20px; /* Abstand zwischen Preis und Tags */
+    margin-left: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
 .tag {
-    background-color: #ccc; /* Grau statt Blau */
+    background-color: #ccc;
     color: #333;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 12px;
 }
 
-/* Hervorgehobener Eintrag */
-.highlighted {
-    border: 2px solid #007bff;
-    background-color: #f0f8ff;
-}
-
 /* Mobile Ansicht */
 @media (max-width: 800px) {
     .sidebar {
-        display: none; /* Sidebar ausblenden */
+        display: none;
     }
 
     #map {
-        width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 80px); /* Platz für die Suchleiste */
+        width: 100%;
+        height: calc(100vh - 80px);
     }
 }
