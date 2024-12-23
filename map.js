@@ -93,7 +93,7 @@ function showMobileInfo(location = null) {
     } else {
         mobileInfo.innerHTML = `
             <div style="text-align: center; padding: 10px;">
-                <strong>Wähle einen Marker auf der Karte aus, um Details zu sehen.</strong>
+                <strong>Finde deinen Friseur: Klicke auf einen Marker für mehr Infos.</strong>
             </div>
         `;
     }
