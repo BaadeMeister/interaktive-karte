@@ -52,16 +52,22 @@ function populateSidebar(locations) {
             highlightListItem(listItem);
 
             // Marker hervorheben
-            if (activeMarker) {
-                activeMarker.setIcon(defaultIcon);
-            }
-            const marker = markerArray[index];
-            marker.setIcon(highlightedIcon);
-            activeMarker = marker;
+            highlightMarker(markerArray[index]);
         });
 
         listContainer.appendChild(listItem);
     });
+}
+
+// Marker hervorheben
+function highlightMarker(marker) {
+    if (activeMarker) {
+        activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
+        activeMarker.getElement().classList.remove("highlighted"); // CSS-Klasse entfernen
+    }
+    marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
+    marker.getElement().classList.add("highlighted"); // CSS-Klasse hinzufügen
+    activeMarker = marker;
 }
 
 // Marker aktualisieren
@@ -75,12 +81,7 @@ function updateMarkers(locations) {
 
         marker.on("click", () => {
             highlightListItem(document.querySelector(`[data-index="${index}"]`));
-
-            if (activeMarker) {
-                activeMarker.setIcon(defaultIcon); // Vorherigen Marker zurücksetzen
-            }
-            marker.setIcon(highlightedIcon); // Neuen Marker hervorheben
-            activeMarker = marker;
+            highlightMarker(marker);
 
             if (window.innerWidth <= 600) {
                 showMobileInfo(location);
