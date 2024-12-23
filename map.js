@@ -42,10 +42,12 @@ function populateSidebar(locations) {
             <div>
                 <strong>${location.name}</strong><br>
                 ${location.address.split(',')[0]}<br>
-                ${location.priceRange}
-            </div>
-            <div class="tags">
-                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                <div class="price-and-tags">
+                    <span class="price">${location.priceRange}</span>
+                    <div class="tags">
+                        ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                    </div>
+                </div>
             </div>
         `;
         listItem.dataset.index = index;
@@ -78,9 +80,11 @@ function showMobileInfo(location) {
         <div>
             <strong>${location.name}</strong><br>
             ${location.address.split(',')[0]}<br>
-            ${location.priceRange}
-            <div class="tags">
-                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+            <div class="price-and-tags">
+                <span class="price">${location.priceRange}</span>
+                <div class="tags">
+                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                </div>
             </div>
         </div>
     `;
