@@ -194,9 +194,9 @@ html, body {
 
     .search-container button {
         flex-shrink: 0; /* Verhindert, dass der Button schrumpft */
-        padding: 6px 12px;
-        font-size: 14px;
-        max-width: 20%; /* Verhindert, dass der Button zu breit wird */
+        padding: 6px 8px; /* Weniger Padding, um Platz zu sparen */
+        font-size: 12px; /* Kleinere Schriftgröße für mobile Ansicht */
+        max-width: 70px; /* Begrenzung der Breite */
         white-space: nowrap;
     }
 
