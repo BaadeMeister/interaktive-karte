@@ -29,6 +29,7 @@ html, body {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    min-width: 0; /* Für kleinere Displays */
 }
 
 .search-container button {
@@ -40,6 +41,7 @@ html, body {
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s ease;
+    white-space: nowrap; /* Button bleibt kompakt */
 }
 
 .search-container button:hover {
@@ -178,18 +180,20 @@ html, body {
         border-radius: 0;
         box-shadow: none;
         z-index: 1000;
-        flex-wrap: wrap; /* Zeilenumbruch ermöglichen */
+        display: flex;
         gap: 4px;
     }
 
     .search-container input {
-        flex: 1 1 70%; /* Breite relativ zur Elternkomponente */
-        min-width: 0; /* Um Überlauf zu vermeiden */
+        flex: 1 1 auto;
+        min-width: 0;
     }
 
     .search-container button {
-        flex: 1 1 25%; /* Platz für den Button */
-        max-width: 70px; /* Maximalbreite für kleinere Bildschirme */
+        flex-shrink: 0;
+        padding: 6px 10px;
+        max-width: 80px;
+        font-size: 14px;
     }
 
     .leaflet-control-zoom {
