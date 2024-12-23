@@ -42,7 +42,10 @@ function populateSidebar(locations) {
             <div>
                 <strong>${location.name}</strong><br>
                 ${location.address.split(',')[0]}<br>
-                Preis: ${location.priceRange}
+                ${location.priceRange}<br>
+                <div class="tags">
+                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                </div>
             </div>
         `;
         listItem.dataset.index = index;
@@ -112,8 +115,11 @@ function showMobileInfo(location) {
         <img src="${location.image}" alt="${location.name}">
         <div>
             <strong>${location.name}</strong><br>
-            ${location.address}<br>
-            Preis: ${location.priceRange}
+            ${location.address.split(',')[0]}<br>
+            ${location.priceRange}<br>
+            <div class="tags">
+                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+            </div>
         </div>
     `;
     mobileInfo.classList.add("active");
