@@ -37,20 +37,18 @@ html, body {
 
 /* Suchleiste */
 .search-container {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 8px 12px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-sizing: border-box;
+    position: absolute; /* Fixiert die Position */
+    top: 10px; /* Abstand vom oberen Rand */
+    left: calc(25% + 50%); /* Sidebar (25%) + Mitte der Karte */
+    transform: translateX(-50%); /* Zentrierung */
+    background-color: rgba(255, 255, 255, 1); /* Nicht transparent */
+    padding: 8px 12px; /* Angemessener Innenabstand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
+    z-index: 1000; /* Über der Karte anzeigen */
+    width: 400px; /* Feste Breite */
 }
+
 
 .search-container input {
     padding: 6px 10px;
