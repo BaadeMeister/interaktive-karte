@@ -5,16 +5,34 @@ html, body {
     overflow: hidden;
     font-family: Arial, sans-serif;
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Container für Sidebar und Karte */
 .container {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 100vh;
     width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 25%; /* Sidebar bleibt konstant 25% der Breite */
+    min-width: 300px; /* Mindestbreite für kleinere Bildschirme */
+    max-width: 400px; /* Maximale Breite für größere Bildschirme */
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+}
+
+/* Karte */
+#map {
+    flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
+    height: 100vh;
+    margin: 0;
 }
 
 /* Suchleiste */
@@ -61,19 +79,7 @@ html, body {
     background-color: #0056b3;
 }
 
-/* Sidebar */
-.sidebar {
-    flex: 0 0 25%;
-    min-width: 300px; /* Mindestbreite */
-    max-width: 400px; /* Maximale Breite */
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    padding: 10px;
-    box-sizing: border-box;
-    border-right: 1px solid #ddd;
-}
-
+/* Locations-Liste */
 #locations-list {
     list-style: none;
     padding: 0;
@@ -138,88 +144,6 @@ html, body {
     background-color: #f0f8ff;
 }
 
-/* Popup-Bilder */
-.popup-content img {
-    max-width: 150px;
-    max-height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto;
-}
-
-.popup-content {
-    text-align: center;
-    width: 200px;
-}
-
-/* Karte */
-#map {
-    flex: 1;
-    height: 100vh;
-    margin: 0;
-}
-
-/* Mobile Kurzinfo */
-.mobile-info {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 10px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
-    align-items: center;
-    gap: 10px;
-}
-
-.mobile-info.active {
-    display: flex;
-}
-
-.mobile-info img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.mobile-info div {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/* Preis und Tags in mobiler Ansicht */
-.mobile-info .price-and-tags {
-    display: flex;
-    align-items: center;
-}
-
-.mobile-info .price {
-    flex-shrink: 0;
-    width: 25px;
-    text-align: left;
-}
-
-.mobile-info .tags {
-    margin-left: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.mobile-info .tag {
-    font-size: 10px;
-    padding: 2px 4px;
-}
-
 /* Mobile Ansicht */
 @media (max-width: 800px) {
     .sidebar {
@@ -228,17 +152,6 @@ html, body {
 
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
-        height: calc(100vh - 80px); /* Platz für die Kurzinfo im mobilen Modus */
-    }
-
-    .mobile-info.active {
-        display: flex;
-    }
-}
-
-/* Desktop Ansicht ab 800px */
-@media (min-width: 800px) {
-    #map {
-        width: calc(100% - 300px); /* Sidebar berücksichtigen */
+        height: calc(100vh - 80px); /* Platz für die Suchleiste */
     }
 }
