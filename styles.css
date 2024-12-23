@@ -37,21 +37,16 @@ html, body {
 
 /* Suchleiste */
 .search-container {
-    position: absolute; /* Fixiert die Position */
+    position: absolute;
     top: 10px; /* Abstand vom oberen Rand */
     left: calc(25% + 50%); /* Sidebar (25%) + Mitte der Karte */
     transform: translateX(-50%); /* Zentrierung */
-    width: 400px; /* Feste Breite */
-    max-width: calc(100% - 20px); /* Begrenzung bei kleineren Bildschirmen */
     background-color: rgba(255, 255, 255, 1); /* Nicht transparent */
     padding: 8px 12px; /* Angemessener Innenabstand */
     border-radius: 8px; /* Abgerundete Ecken */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
     z-index: 1000; /* Über der Karte anzeigen */
-    display: flex; /* Flexbox für Inhalt */
-    align-items: center;
-    gap: 8px;
-    box-sizing: border-box;
+    width: 300px; /* Feste Breite für Desktop */
 }
 
 .search-container input {
@@ -193,24 +188,23 @@ html, body {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100%; /* Suchleiste über die gesamte Breite */
         transform: none; /* Zentrierung entfernen */
-        background-color: #ffffff; /* Undurchsichtiger weißer Hintergrund */
+        background-color: #ffffff; /* Weißer Hintergrund */
         z-index: 1000;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Abhebung */
-        padding: 10px; /* Ausreichend Innenabstand */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichte Schatten */
+        padding: 10px; /* Innenabstand */
         border-radius: 0; /* Keine abgerundeten Ecken */
-        gap: 10px; /* Abstände zwischen Input und Button */
     }
 
     .search-container input {
         font-size: 16px; /* Größere Schrift für bessere Lesbarkeit */
-        flex: 1;
     }
 
     .search-container button {
         font-size: 16px; /* Einheitliche Schriftgröße */
     }
+}
 
     .mobile-info {
         position: fixed;
