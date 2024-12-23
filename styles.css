@@ -194,7 +194,7 @@ html, body {
 
 .mobile-info .price {
     flex-shrink: 0;
-    width: 40px; /* Gleiche Breite wie in der Desktop-Ansicht */
+    width: 25px; /* Gleiche Breite wie in der Desktop-Ansicht */
     text-align: left;
 }
 
