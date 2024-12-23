@@ -73,7 +73,24 @@ function highlightMarker(marker) {
     activeMarker = marker;
 }
 
-
+// Mobile Info anzeigen
+function showMobileInfo(location) {
+    const mobileInfo = document.querySelector("#mobile-info");
+    mobileInfo.innerHTML = `
+        <img src="${location.image}" alt="${location.name}">
+        <div>
+            <strong>${location.name}</strong><br>
+            ${location.address.split(',')[0]}<br>
+            <div class="price-and-tags">
+                <span class="price">${location.priceRange}</span>
+                <div class="tags">
+                    ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
+                </div>
+            </div>
+        </div>
+    `;
+    mobileInfo.classList.add("active");
+}
 
 // Marker aktualisieren
 function updateMarkers(locations) {
@@ -101,43 +118,11 @@ function highlightListItem(listItem) {
     }
 }
 
-// Mobile Info anzeigen
-function showMobileInfo(location) {
-    const mobileInfo = document.querySelector("#mobile-info");
-    const mobileInfoImage = document.querySelector("#mobile-info-image");
-    const mobileInfoContent = document.querySelector("#mobile-info-content");
-
-    mobileInfoImage.src = location.image;
-    mobileInfoImage.alt = location.name;
-
-    mobileInfoContent.innerHTML = `
-        <strong>${location.name}</strong><br>
-        ${location.address.split(',')[0]}<br>
-        <div class="price-and-tags">
-            <span class="price">${location.priceRange}</span>
-            <div class="tags">
-                ${location.tags ? location.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ') : ''}
-            </div>
-        </div>
-    `;
-
-    mobileInfo.classList.add("active");
-}
-
 // Mobile Info ausblenden
 function hideMobileInfo() {
     const mobileInfo = document.querySelector("#mobile-info");
     mobileInfo.classList.remove("active");
 }
-
-// Event: Mobile Info bei Klick außerhalb ausblenden
-document.addEventListener("click", (e) => {
-    const mobileInfo = document.querySelector("#mobile-info");
-    if (!mobileInfo.contains(e.target) && !e.target.closest(".location-item")) {
-        hideMobileInfo();
-    }
-});
-
 
 // Daten laden
 fetch("locations.json")
