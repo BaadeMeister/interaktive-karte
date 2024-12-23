@@ -16,23 +16,26 @@
         <button onclick="searchLocation()">Los</button>
     </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <ul id="locations-list">
-            <!-- Dynamische Inhalte -->
-        </ul>
+    <!-- Hauptcontainer -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul id="locations-list">
+                <!-- Dynamische Inhalte -->
+            </ul>
+        </div>
+
+        <!-- Karte -->
+        <div id="map"></div>
     </div>
 
-    <!-- Karte -->
-    <div id="map"></div>
-
-    <!-- Kurzinfo unter der Karte für Mobilansicht -->
+    <!-- Mobile Kurzinfo -->
     <div id="mobile-info" class="mobile-info hidden">
         <img id="mobile-info-image" src="" alt="Kurzinfo-Bild" />
         <div id="mobile-info-content"></div>
     </div>
 
-    <!-- Externe Skripte -->
+    <!-- Skripte -->
     <script src="map.js"></script>
     <script src="search.js"></script>
 </body>
