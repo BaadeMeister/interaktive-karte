@@ -94,16 +94,17 @@ html, body {
     flex: 1;
 }
 
-/* Tags und Preis in einer Zeile */
+/* Preis und Tags */
 .price-and-tags {
     display: flex;
+    justify-content: space-between; /* Preis links, Tags rechts */
     align-items: center;
-    gap: 8px;
     margin-top: 5px;
 }
 
 .price {
-    font-weight: bold;
+    font-weight: normal; /* Entfernt Fettschrift */
+    font-size: 14px;
 }
 
 .tags {
@@ -112,7 +113,7 @@ html, body {
 }
 
 .tag {
-    background-color: #ccc;
+    background-color: #ccc; /* Grau statt Blau */
     color: #333;
     padding: 2px 6px;
     border-radius: 4px;
@@ -123,6 +124,21 @@ html, body {
 .highlighted {
     border: 2px solid #007bff;
     background-color: #f0f8ff;
+}
+
+/* Popup-Bilder */
+.popup-content img {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+.popup-content {
+    text-align: center;
+    width: 200px;
 }
 
 /* Karte */
@@ -172,7 +188,7 @@ html, body {
 /* Mobile Tags */
 .mobile-info .tags {
     margin-top: 5px;
-    justify-content: flex-start;
+    justify-content: flex-end; /* Tags rechtsbündig */
 }
 
 .mobile-info .tag {
