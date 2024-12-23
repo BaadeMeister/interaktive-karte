@@ -55,6 +55,7 @@ html, body {
 .sidebar {
     width: 25%;
     min-width: 300px; /* Mindestbreite */
+    max-width: 400px; /* Maximale Breite für große Bildschirme */
     height: 100vh;
     float: left;
     overflow-y: auto;
@@ -220,5 +221,16 @@ html, body {
     #map {
         width: 100%; /* Karte nimmt die volle Breite ein */
         height: calc(100vh - 80px); /* Platz für die Kurzinfo im mobilen Modus */
+    }
+
+    .mobile-info.active {
+        display: flex;
+    }
+}
+
+/* Desktop Ansicht ab 800px */
+@media (min-width: 800px) {
+    #map {
+        width: calc(100% - 300px); /* Sidebar berücksichtigen */
     }
 }
