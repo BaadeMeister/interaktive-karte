@@ -31,7 +31,7 @@ html, body {
 /* Karte */
 #map {
     flex: 1; /* Nimmt den restlichen verfügbaren Platz ein */
-    height: 100vh;
+    height: calc(100vh - 60px);
     margin: 0;
 }
 
@@ -50,6 +50,7 @@ html, body {
     align-items: center;
     gap: 8px;
     box-sizing: border-box;
+    width: 70%; /* Zentrierte Breite der Suchleiste */
 }
 
 .search-container input {
